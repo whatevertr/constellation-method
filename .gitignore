@@ -1,0 +1,10 @@
+# --- segredos/credenciais (grupo C, defensivo — nenhum presente hoje) ---
+.env
+.env.*
+*.pem
+*.key
+*credential*
+
+# --- sistema operacional (grupo C) ---
+.DS_Store
+Thumbs.db
