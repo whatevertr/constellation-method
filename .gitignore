@@ -1,3 +1,6 @@
+# --- andaime local: instrução para instâncias (repo PÚBLICO, não sobe) ---
+_repo_instrucoes_instancia.md
+
 # --- segredos/credenciais (grupo C, defensivo — nenhum presente hoje) ---
 .env
 .env.*

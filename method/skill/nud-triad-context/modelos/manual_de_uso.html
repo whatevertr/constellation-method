@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-nud="dia">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manual de uso &#8212; Tr&#237;ade de Contexto</title>
+<style>
+:root{
+  --paper:#E7DCD0; --cell:#F4EBE2; --ink:#191128; --ink2:#2C233D; --ink3:#423B55; --ink4:#524B65; --ink5:#605875;
+  --wire:#ABA9B3; --violet:#642DA4; --orange:#993700; --orange2:#7D2700;
+  --mono:'IBM Plex Mono','JetBrains Mono',monospace; --display:'Share Tech Mono',monospace;
+}
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Share+Tech+Mono&display=swap');
+*{box-sizing:border-box} html,body{margin:0;padding:0}
+body{background:linear-gradient(180deg,var(--paper),#F0E6D9);color:var(--ink2);font-family:var(--mono);font-size:13px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.page{max-width:820px;margin:0 auto;padding:34px 34px 22px}
+.lockup,.doc-kicker,.label,.steps li::before{font-family:var(--display);letter-spacing:.16em;text-transform:uppercase}
+.lockup{font-size:14px;color:var(--ink2)} .lockup b{color:var(--violet);font-weight:400}
+.doc-kicker,.meta,.foot p{font-size:11px;color:var(--ink5)} .doc-kicker{margin-top:10px}
+h1{margin:8px 0 0;font:400 27px/1.1 var(--display);color:var(--ink2)}
+.subtitle{margin:10px 0 0;max-width:62ch;color:var(--ink4);font-size:13px}
+.meta{margin:8px 0 0;text-transform:uppercase;letter-spacing:.12em}
+.rule{height:1px;background:var(--wire);border:0;margin:20px 0 14px}
+.label{font-size:11px;color:var(--ink5);margin:0 0 10px}
+.lead,.card p,.note p{color:var(--ink2)} .lead{margin:0 0 10px;max-width:64ch}
+.card{display:flex;gap:14px;align-items:flex-start;border:1px solid var(--wire);background:var(--cell);padding:10px 12px;margin:8px 0}
+.art{flex:0 0 auto;display:flex;align-items:center;justify-content:center;background:var(--paper);border:1px solid var(--wire)}
+.art.wide{width:72px;height:48px} .art.sq{width:64px;height:64px} .art svg{display:block;image-rendering:pixelated}
+.body{flex:1;min-width:0} .fname{color:var(--violet)} .role{color:var(--violet);margin-left:10px;font-size:11px;letter-spacing:.18em;text-transform:uppercase}
+.who{float:right;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink5)}
+.card p{margin:6px 0 0;font-size:12px;line-height:1.45} .mono-note{font-size:11px;color:var(--ink5)}
+.note{border:1px solid var(--wire);border-left:2px solid var(--orange);background:var(--cell);padding:10px 12px;margin:10px 0;color:var(--ink2)}
+.note b{color:var(--ink2)}
+.steps{list-style:none;margin:6px 0 0;padding:0;counter-reset:s} .steps li{position:relative;border-top:1px solid var(--wire);padding:9px 0 9px 42px;font-size:11px;line-height:1.45}
+.steps li:first-child{border-top:0} .steps li::before{counter-increment:s;content:"0" counter(s);position:absolute;left:0;top:9px;color:var(--violet);font-size:14px}
+code{font-family:var(--mono);font-size:.92em;color:var(--violet);background:var(--paper);border:1px solid var(--wire);padding:1px 4px}
+.foot{display:flex;gap:12px;align-items:center;border-top:1px solid var(--wire);margin-top:12px;padding-top:10px} .foot .mk{width:36px;height:24px;flex:0 0 auto}
+.foot .mk svg{width:36px;height:24px;display:block;image-rendering:pixelated}
+@page{size:A4;margin:8mm}
+@media print{body{-webkit-print-color-adjust:exact;print-color-adjust:exact} .page{padding:10px 16px 8px;max-width:none} .card,.note{break-inside:avoid} .subtitle,.lead,.card p,.note p,.foot p,.steps li{font-size:9.5pt;line-height:1.38} .rule{margin:9px 0 7px} .label{margin:0 0 6px} .lead{margin:0 0 6px} .card{padding:6px 10px;gap:10px;margin:5px 0} .card p{margin:3px 0 0} .note{padding:7px 10px;margin-bottom:5px} .subtitle{margin:6px 0 0} .doc-kicker{margin-top:6px} h1{margin:4px 0 0} .meta{margin:5px 0 0} .foot{margin-top:8px;padding-top:8px}}
+</style>
+</head>
+<body>
+<main class="page">
+  <div class="lockup">NUD <b>[&#183;]</b></div>
+  <div class="doc-kicker">// MANUAL_DE_USO</div>
+  <h1>Tr&#237;ade de Contexto</h1>
+  <p class="subtitle">Cinco arquivos que ensinam qualquer IA a trabalhar do jeito de <strong>[NOME]</strong>. Este guia diz o que &#233; cada um e como us&#225;-los.</p>
+  <p class="meta">Perfil de [NOME] &#183; vers&#227;o [Vx] &#183; [DD/MM/AAAA]</p>
+  <hr class="rule">
+  <p class="label">// O_QUE_VOC&#202;_RECEBEU</p>
+  <p class="lead">A <strong>Tr&#237;ade</strong> &#233; um pacote de contexto: <strong>a porta</strong> por onde a IA entra, <strong>o manual</strong> de como sua cabe&#231;a funciona, e <strong>tr&#234;s fun&#231;&#245;es</strong> que voc&#234; escolhe conforme a tarefa. N&#227;o &#233; teste de personalidade &#8212; &#233; um contrato de trabalho, baseado s&#243; em psicologia cognitiva validada. Voc&#234; pode editar tudo &#224; vontade.</p>
+  <div class="card"><div class="body"><span class="who">o marcador</span><span class="fname">comece_aqui.md</span><span class="role">a porta</span><p>Onde a IA entra. Diz o objetivo do trabalho, a fundamenta&#231;&#227;o e para onde ir. <b>Sempre abra a conversa colando este primeiro.</b></p><p class="mono-note"><b>Leia primeiro &#183; aponta para os outros quatro.</b></p></div></div>
+  <div class="card"><div class="body"><span class="who">o alien</span><span class="fname">como_trabalhar_comigo.md</span><span class="role">o manual</span><p>Como sua cabe&#231;a funciona em sete dimens&#245;es: o que te faz render e o que gera atrito. &#201; o cora&#231;&#227;o do pacote &#8212; a IA l&#234; para se calibrar a voc&#234;.</p><p class="mono-note"><b>O mascote da marca. O manual da pessoa.</b></p></div></div>
+  <div class="card"><div class="body"><span class="fname">worker.md</span><span class="role">executar</span><p>A fun&#231;&#227;o que <b>faz e finaliza</b>. Use quando a tarefa &#233; clara e o que importa &#233; entregar. CASE pisca: aparece, executa, sai.</p></div></div>
+  <div class="card"><div class="body"><span class="fname">thinker.md</span><span class="role">pensar</span><p>A fun&#231;&#227;o que <b>abre e investiga</b>. Use quando o problema ainda n&#227;o tem forma e voc&#234; precisa pensar junto. TARS pulsa: n&#227;o corre, porque n&#227;o tem para onde ir.</p></div></div>
+  <div class="card"><div class="body"><span class="fname">manager.md</span><span class="role">conduzir</span><p>A fun&#231;&#227;o que <b>decide e mant&#233;m o prumo</b>. Use quando &#233; preciso priorizar, aprovar ou segurar o rumo. ROCKY oscila no fio: quando aprova, assenta; quando diz "ainda n&#227;o", n&#227;o para.</p></div></div>
+  <div class="note"><b>As tr&#234;s fun&#231;&#245;es s&#227;o a mesma pessoa em tr&#234;s modos.</b> Voc&#234; n&#227;o roda as tr&#234;s ao mesmo tempo &#8212; escolhe uma por tarefa e cola o arquivo dela junto da porta.</div>
+  <hr class="rule">
+  <p class="label">// COMO_USAR_</p>
+  <div class="note">
+    <p>Projeto grande, com partes que se conversam: cada fun&#231;&#227;o na sua pr&#243;pria pasta ou branch.</p>
+    <p>Projeto isolado: escolha s&#243; a fun&#231;&#227;o que combina com a tarefa.</p>
+    <p>&#9888; Uma conversa, uma fun&#231;&#227;o. N&#227;o pe&#231;a para a mesma inst&#226;ncia pensar e executar ao mesmo tempo &#8212; misturar os pap&#233;is piora os dois. Se precisar dos dois, abra duas conversas.</p>
+  </div>
+  <div class="foot"><p>Gerado com a Tr&#237;ade de Contexto &#8212; m&#233;todo de Thain&#227; Ramos (Nud by Whatevertr) &#183; <a href="https://github.com/whatevertr">github.com/whatevertr</a> &#183; Licenciado sob CC-BY-4.0.</p></div>
+</main>
+</body>
+</html>
