@@ -19,10 +19,12 @@
 ## Versionamento
 *Convenção para você ter histórico do que foi produzido e quando.*
 
-**Versão + data no cabeçalho, nome do arquivo limpo.** Ex.: cabeçalho `nome_do_arquivo — V2 — DD/MM/AAAA`, arquivo salvo como `nome_do_arquivo`.
+**Apelido + versão + data no cabeçalho.** Ex.: `nome_do_arquivo_V2 — DD/MM/AAAA`.
 - A versão sobe quando o conteúdo ou a regra muda.
-- A versão e a data moram no cabeçalho do arquivo — **nunca no nome do arquivo**.
-- Nada é sobrescrito: uma versão nova nasce ao lado da anterior.
+- A data mora no cabeçalho do arquivo.
+- Nada é sobrescrito: uma versão nova nasce ao lado da anterior — por isso a versão aparece no nome, senão as duas não caberiam na mesma pasta.
+
+> **Isto vale para os arquivos do PROJETO ao longo do tempo.** Não confundir com a regra de nomeação da **entrega**: os 5 arquivos que a Tríade entrega saem com nome canônico limpo (`start_here`, `how_to_work_with_me`, `worker`, `thinker`, `manager`). São duas coisas diferentes — o que a skill entrega, e o que o projeto acumula depois.
 
 ## Memória
 *Instância: OFEREÇA e LEMBRE a pessoa de manter um `_memoria.md` — o arquivo que guarda o estado do trabalho para retomar sem reler tudo.*
