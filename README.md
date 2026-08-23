@@ -60,8 +60,8 @@ Two pieces carry the method's honesty, and both are structure, not willpower:
 
 The method reads as PDSA applied to context. Production engineering gives the method (standardized work, poka-yoke, PDSA, positive deviance), and two research fronts give the grounding:
 
-- **Context engineering**: context is a finite budget with geometry, because the model uses the start and the end of the window well and loses the middle, and the harness around the model moves the result as much as the model itself. A recent measurement records the same model swinging dozens of points just by changing the harness ([Harness-Bench, 2026](https://arxiv.org/abs/2605.27922), _preprint_).
-- **Model behavior**: sycophancy is a product of training on human preference ([Sharma et al., 2023](https://arxiv.org/abs/2310.13548)), increases with scale and more RLHF ([Perez et al., 2022](https://arxiv.org/abs/2212.09251)), and a user profile in memory amplifies it (+45% agreement in the measured case; [Jain et al., 2025](https://arxiv.org/abs/2509.12517)).
+- **Context engineering**: context is a finite budget with geometry, because the model uses the start and the end of the window well and loses the middle, and the harness around the model moves the result **in a way you can design for**. A recent measurement records the same model swinging dozens of points **from one harness to another** ([Harness-Bench, 2026](https://arxiv.org/abs/2605.27922), _preprint_).
+- **Model behavior**: sycophancy is a product of training on human preference ([Sharma et al., 2023](https://arxiv.org/abs/2310.13548)), increases with scale and more RLHF ([Perez et al., 2022](https://arxiv.org/abs/2212.09251)), and a user profile in memory amplifies it across several models (up to +45% agreement in the measured case, with cases showing no significant change; [Jain et al., CHI 2026](https://doi.org/10.1145/3772318.3791915)).
 
 The formal text, the thesis, comes later, as the research firms up.
 

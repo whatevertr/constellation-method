@@ -60,8 +60,8 @@ Duas peças carregam a honestidade do método, e as duas são estrutura, não fo
 
 O método se lê como PDSA aplicado a contexto. A Engenharia de Produção dá o método (trabalho padronizado, poka-yoke, PDSA, desvio positivo), e duas frentes de pesquisa dão o embasamento:
 
-- **Engenharia de Contexto**: o contexto é um orçamento finito com geometria, porque o modelo usa bem o começo e o fim da janela e perde o meio, e o harness em volta do modelo move o resultado tanto quanto o próprio modelo. Uma medição recente registra o mesmo modelo variando dezenas de pontos só pela troca do harness ([Harness-Bench, 2026](https://arxiv.org/abs/2605.27922), _preprint_).
-- **Comportamento do modelo**: a bajulação é produto do treino por preferência humana ([Sharma et al., 2023](https://arxiv.org/abs/2310.13548)), aumenta com escala e mais RLHF ([Perez et al., 2022](https://arxiv.org/abs/2212.09251)), e um perfil do usuário na memória a amplifica (+45% de concordância no caso medido; [Jain et al., 2025](https://arxiv.org/abs/2509.12517)).
+- **Engenharia de Contexto**: o contexto é um orçamento finito com geometria, porque o modelo usa bem o começo e o fim da janela e perde o meio, e o harness em volta do modelo move o resultado **de um jeito que dá para projetar**. Uma medição recente registra o mesmo modelo variando dezenas de pontos **entre um harness e outro** ([Harness-Bench, 2026](https://arxiv.org/abs/2605.27922), _preprint_).
+- **Comportamento do modelo**: a bajulação é produto do treino por preferência humana ([Sharma et al., 2023](https://arxiv.org/abs/2310.13548)), aumenta com escala e mais RLHF ([Perez et al., 2022](https://arxiv.org/abs/2212.09251)), e um perfil do usuário na memória a amplifica em vários modelos (até +45% de concordância no caso medido, com casos sem mudança significativa; [Jain et al., CHI 2026](https://doi.org/10.1145/3772318.3791915)).
 
 O texto formal, a tese, vem depois, à medida que a pesquisa firma.
 
