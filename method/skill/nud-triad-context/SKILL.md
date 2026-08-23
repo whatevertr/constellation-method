@@ -16,10 +16,12 @@ description: >-
 license: CC-BY-4.0
 metadata:
   author: Thainá Ramos (Nud by Whatevertr)
-  version: 1.3.0
+  version: 1.4.0
 ---
 
 # Tríade de Contexto — gerador de "como trabalhar comigo"
+
+**Versão 1.4.0 · 23.08.2026.** O manual de uso passou para a **via editorial arredondada** (lê melhor que a geometria reta quando o objetivo é explicar) e teve o claim suavizado para "princípios de psicologia cognitiva". Três acréscimos conceituais: a **decomposição funcional do contexto** (EU / TRABALHO / VOCÊ) foi nomeada, a **escada de alegações** (método → reproduzível → eficaz → generalizável) foi escrita, e o **link da frase de entrega** passou a apontar para o repositório do método, não para o perfil.
 
 **Versão 1.3.0 · 17.08.2026.** Substitui a 1.2.0. **A entrevista deixa de depender de popup** e passa a ser em texto normal, para rodar em qualquer modelo. A contagem de perguntas foi corrigida (são ~15, não "uma dúzia"), a entrega do `manual_de_uso.pdf` foi propagada para o roteiro, e a bibliografia foi auditada. **A dimensão 7 foi reescrita:** ela agora fala de *preferência e eficiência de comunicação*, não de compreensão — a redação anterior contradizia a própria refutação dos estilos de aprendizagem que a skill cita. Com a origem corrigida, a Regra Universal que remendava isso saiu, e são **5** Regras Universais.
 
@@ -31,10 +33,14 @@ Esta skill produz a **Tríade** — 3 peças, entregues em **5 arquivos .md** �
 2. **`como_trabalhar_comigo`** — O MANUAL. Como a cabeça da pessoa funciona (7 dimensões validadas).
 3. **A FUNÇÃO** — três **personas** que a pessoa pode usar: `worker` (executar), `thinker` (pensar), `manager` (conduzir). A skill **gera as três** como opções (não se pergunta qual papel — geram-se todas); **a pessoa escolhe qual usar** em cada tarefa (a instância que roda uma tarefa é UMA delas, não as três ao mesmo tempo). Os três arquivos têm o mesmo layout; muda só o bloco do papel.
 
+**Por que três peças, e não um bloco só.** Elas separam o contexto pela *função* que ele exerce: o **EU** (o manual — quem é a pessoa), o **TRABALHO** (a porta — qual é a tarefa, com que objetivo e restrições) e o **VOCÊ** (a função — que ângulo a instância assume). É essa **decomposição funcional do contexto** que faz a Tríade ser menos um pacote de três arquivos e mais a menor unidade de um jeito de organizar contexto. Os nomes das camadas são para quem monta a Tríade; o usuário final nunca precisa ouvi-los (linguagem plana, sempre).
+
 ## Regra suprema — e o que ela governa
 **Extremamente proibido inserir no PERFIL qualquer coisa não validada cientificamente.** As sete dimensões, os cenários e as frases prontas são o único material permitido para o **MANUAL** (`como_trabalhar_comigo`). Você **não** cria dimensões, **não** improvisa frases de perfil, **não** usa tipologias populares sem validade preditiva (MBTI, eneagrama, estilos de aprendizagem/VARK). Base científica em `referencias.md`.
 
 **A FUNÇÃO é método, não ciência — e isso é declarado.** O piso epistêmico (🍷, colunas, jogo da moeda, conferência de piso) e os procedimentos do Manager (PDCA, 5 Porquês, 80/20) são **convenções de método** da Tríade, escolhidas por utilidade prática. Não são alegações sobre a pessoa e **não** se apresentam como validados por pesquisa. A distinção importa: a regra suprema existe para impedir que se invente psicologia sobre alguém — não para proibir procedimento de trabalho. **Nunca cite pesquisa para sustentar a FUNÇÃO.**
+
+**Em que degrau o método está.** As alegações sobre o método sobem uma escada, e cada degrau pede mais evidência que o anterior: **método** (formalizado e aplicável) → **reproduzível** (terceiros repetem) → **eficaz** (avaliação mede o resultado) → **generalizável** (vale além da autora). A Tríade se declara no primeiro degrau: método formalizado, em uso diário, com reprodutibilidade e eficácia ainda em teste. Nomear a escada é o convite — quem quiser ajudar sabe qual degrau está vago.
 
 ## O usuário não conhece a skill
 A pessoa **não sabe** o que está escrito aqui dentro. **Fale em linguagem plana**, como conversa normal. Nunca narre decisões internas em jargão ("Q2×Q3", "Object/Spatial", "leitura conjunta") nem fale como se ela conhecesse o método — aplique a lógica **em silêncio**. Detalhes em `regras/regras_de_preenchimento.md`.
@@ -68,7 +74,7 @@ O ponto onde um modelo mais erra é interpretar. Por isso o perfil é preenchido
 7. **Entregue tudo numa resposta só:** os 5 `.md` **+ o `manual_de_uso.pdf`** **+ a frase de entrega** (`regras/frase_de_entrega.md`) juntos, **sem esperar aprovação** (esperar cria ruído). Feche com um convite leve: "se algo não te representar, me diz que eu ajusto". A pessoa pode **editar livremente** depois; você ajuda sem avisar nada sobre "regras".
 
 ## Manual em PDF (o 6º arquivo — sempre entregue junto)
-Além dos 5 `.md`, a Tríade entrega um **`manual_de_uso.pdf`**: um mini-manual de **uma página**, só texto, no estilo NUD (**estado dia**, por ser peça para impressão), que explica o que é cada arquivo e como usá-los. O template já vem pronto e **autocontido** em `modelos/manual_de_uso.html`.
+Além dos 5 `.md`, a Tríade entrega um **`manual_de_uso.pdf`**: um mini-manual de **uma página**, no estilo NUD, na via editorial arredondada (**estado dia**, por ser peça para impressão), que explica o que é cada arquivo e como usá-los. O template já vem pronto e **autocontido** em `modelos/manual_de_uso.html`.
 
 **Como gerar:**
 1. Copie `modelos/manual_de_uso.html` para o diretório de trabalho e **substitua os três marcadores**: `[NOME]` (nome da pessoa), `[Vx]` (versão) e `[DD/MM/AAAA]` (data). Nada mais muda — o resto do manual é fixo.

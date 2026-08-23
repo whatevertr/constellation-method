@@ -11,7 +11,7 @@ Eles são os **contextos** que permitem uma relação de trabalho melhor entre h
 
 - **Trabalho pontual (uma conversa):** cole os cinco arquivos no chat, no início da sessão.
 - **Trabalho médio ou longo:** coloque os arquivos no projeto (pasta ou UI da ferramenta). Garanta que toda nova instância leia primeiro o `comece_aqui` — ele aponta para os outros dois. Considere manter uma `_memoria.md` para não perder o estado do projeto entre sessões.
-- **Trabalho muito longo:** considere usar um método de *harness* (estrutura que mantém o contexto vivo ao longo do tempo). O meu está disponível em: **https://github.com/whatevertr**
+- **Trabalho muito longo:** considere usar um método de *harness* (estrutura que mantém o contexto vivo ao longo do tempo). O meu está disponível em: **https://github.com/whatevertr/constellation-method**
 
 Dá uma olhada. Se algum ponto não te representar, **me diga qual e o que não ficou** que eu ajusto — do jeito que for melhor pra você.
 
