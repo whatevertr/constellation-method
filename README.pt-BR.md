@@ -2,74 +2,78 @@
 
 # Método Constelação
 
-Um harness leve, de três arquivos, para trabalhar com uma IA em tarefas longas sem perder o fio entre sessões. São três documentos que você preenche uma vez e a instância lê no começo de cada sessão.
+Três arquivos que você preenche uma vez, pra uma IA não perder o fio entre sessões. A instância lê os três no começo de cada sessão e já sabe quem você é, o que importa agora e como você trabalha.
 
-> **O que é isto.** Pesquisa de auto-aprimoramento e de infraestrutura própria, validada em uso diário (_dogfooding_). Propor uma arquitetura nova e disponibilizá-la em público como forma legítima de gerar conhecimento, então abro esta como **hipótese de solução:** fundamentada, ainda não testada em escala, construída à vista. A trilha de commits é o registro datado da evolução.
+> **A forma como eu uso** tem funcionado bem e, eu gosto de organizar estruturas, resolvi documentar a minha, enquanto estudo e vou melhorando.
 
 ---
 
 ## O problema
 
-Trabalho longo com IA tem uma falha recorrente. A cada sessão nova, ou a cada reset de contexto, a instância esquece quem você é (mas as vezes não é perceptível), o que importa agora e como você trabalha, e você recomeça explicando tudo, e quando você não percebe que ela te esqueceu, ou esqueceu o objetivo, bom... Você vai descobrir só no meio da produção, aposto que vc já teve retrabalho ou gasto de tokens por isso. Pior: sem regras explícitas, o modelo tende a concordar com você **(bajulação)** e a preencher lacuna com palpite plausível em vez de dizer **"não sei"**.
+A cada sessão nova, ou reset de contexto, a instância esquece quem você é, o que importa agora e como você trabalha, e você recomeça do zero. Pior: sem regras explícitas, o modelo tende a **concordar com você (bajulação)** e a preencher lacuna com palpite plausível em vez de dizer **"não sei"**, ou rejeitar o erro produzido. E às vezes você só descobre no meio da produção, com retrabalho e token gasto.
 
-Isso **não é um vício que se conserta esperando o próximo modelo**, porque a bajulação é produto previsível do treino por preferência humana e não diminui conforme os modelos melhoram (ver [Referências](#referências)). A conclusão é direta: já que o viés nasce no objetivo de treino, a defesa precisa ser estrutura **fora** do modelo.
+A bajulação **não é um vício que se conserta esperando o próximo modelo**: ela é produto previsível do treino por preferência humana e não diminui conforme os modelos melhoram (ver [Referências](#referências)). Já que nasce no objetivo de treino, eu **escolho** montar a defesa como estrutura **fora** do modelo, em vez de contar que ele se autovigie sozinho.
 
-O método monta o contexto em camadas antes de qualquer tarefa: o que é o projeto, como a sua cabeça funciona, e a postura epistêmica que a instância carrega. O estado do trabalho vive na memória.md que sobrevive ao reset. Você para de recomeçar do zero, e ganha eficiência. Os meus costumam lembrar do que eu tenho que fazer melhor do que eu 😏.
+O método monta o contexto em camadas antes da tarefa: o que é o projeto, como a sua cabeça funciona, e a postura que a instância carrega. O estado do trabalho vive numa `memoria.md` que sobrevive ao reset. Você para de recomeçar do zero. (Os meus costumam lembrar do que eu tenho que fazer melhor do que eu 😏.)
 
-## A tríade: o harness mínimo
+Agora as interfaces já estão implementando seus gatilhos de salvar na memória dentro da pasta do app, recente eu vi acontecer na minha frente, mas ainda assim, eu ainda acho que para garantir conferências limpas, precisa separar o contexto até no nível da memória, então... Tem uma manutenção pra fazer quando o gerenciamento é em interface e não via terminal kkkk não faço ideia do trabalho que dá pra fazer isso via terminal.
 
-O ponto de entrada são três arquivos, três camadas:
+## A tríade: o mínimo que eu uso
 
-- **a porta** (`comece_aqui`): onde a instância entra. O tema, a prioridade viva agora, e para onde ir em seguida.
+Três arquivos, três camadas:
+
+- **a porta** (`comece_aqui`): onde a instância entra. O tema, a prioridade de agora, e pra onde ir em seguida.
 - **o manual** (`como_trabalhar_comigo`): como a sua cabeça funciona. Os seus critérios de colaboração, escritos por você.
-- **o contrato** (`a função`): como você quer que a instância seja. O ângulo dela e o piso epistêmico que não muda. Três funções prontas (thinker, worker, manager), uma por tarefa.
+- **a função** (`method/agents/`): que papel a instância assume. Três perfis prontos e genéricos, **thinker**, **manager**, **worker**, um por tarefa, cada um com o piso epistêmico que não muda.
 
-São três arquivos que executam os quatro movimentos canônicos de contexto: escrever, selecionar, comprimir, isolar. É o mínimo que já funciona.
+🍷Seria um mínimo para começar a fazer tarefas mais complexas de forma mais rápida.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/triad_nud_noite.svg">
-  <img alt="A tríade: as três camadas do harness mínimo" src="assets/triad_nud_dia.svg">
+  <img alt="A tríade: as três camadas do método" src="assets/triad_nud_dia.svg">
 </picture>
 
-## Como cheguei ao harness
+## Como cheguei aqui
 
-A tríade não nasceu pronta, foi destilada no uso ao longo de muitas instâncias. Cada sala testou uma peça, e o que sobrevivia à conferência ficava, porque sem um padrão estável não há como saber o que causou a melhora. Este mapa é a trilha do percurso, da primeira instância sem contexto até a estrutura de hoje:
+A tríade não nasceu pronta, foi destilada no uso ao longo de muitas instâncias. Eu observava, mudava, testava, conferia, nada muito elaborado, fui mapeando pelo comportamento. Este mapa é a trilha do percurso, da primeira instância sem contexto até a estrutura da tríade:
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/mapa_cronologico_noite.svg">
-  <img alt="Método Constelação: a trilha até o harness, ao longo do tempo" src="assets/mapa_cronologico_dia.svg">
+  <img alt="Método Constelação: a trilha ao longo do tempo" src="assets/mapa_cronologico_dia.svg">
 </picture>
 
-## O harness: onde eu trabalho agora
+## Pra onde estou indo (ainda um esboço)
 
-O que começou como três arquivos cresceu na estrutura que passo a operar a partir daqui: um cronista central que organiza e mantém o rastro, contextos isolados por assunto (uma sala não enxerga a outra), memória conectada que sobrevive ao reset, e uma parede entre o público e o privado. Este é o projeto do harness, a arquitetura completa:
+O desenho maior abaixo, um cronista central que mantém o rastro, salas isoladas por assunto (uma não enxerga a outra), memória consistente, é onde estou trabalhando hoje e colocando aqui aos poucos, um esboço da arquitetura, é o modelo de interface que eu gostaria de ter. Se tiver alguém querendo construir, seria interessante.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/harness_desenho_definitivo_noite.svg">
-  <img alt="O harness completo do Constellation: a arquitetura" src="assets/harness_desenho_definitivo_dia.svg">
+  <img alt="O desenho maior (esboço): a arquitetura pretendida" src="assets/harness_desenho_definitivo_dia.svg">
 </picture>
 
-## As regras epistêmicas
+## As regras que carregam a honestidade
 
-Duas peças carregam a honestidade do método, e as duas são estrutura, não força de vontade:
+Duas peças, e as duas são estrutura, não força de vontade:
 
 - **A taça 🍷**: a instância (e você) marca em uma linha o que percebe mas não consegue verificar. O não-conferido fica nomeado, não escondido.
-- **O jogo da moeda**: a cada troca, você sinaliza certo ou errado e a instância aposta se o seu sinal foi sincero. São duas conferências, uma de cada lado. Isso desarma a bajulação porque a estrutura obriga a aposta, em vez de deixar o modelo apenas absorver o seu feedback.
+- **O jogo da moeda**: a cada troca, você sinaliza se o que veio estava certo ou errado, e a instância já tinha apostado nisso. É uma redundância de conferência sobre o contexto do que está sendo pedido ou reportado.
 
-## Em que ele se apoia
+  > **Exemplo concreto.** A instância aposta antes de terminar ou antes de conferir: *"aposto que X vai precisar de ajuste"*. Depois de conferir, ela pontua: *"não precisou de ajuste, não pontuei"*. É um jeito criativo de pedir conferência sobre o que ela mesma concluiu, tentando circundar a sycophancy em vez de proibi-la. Não afirmo que resolve: numa conversa de trabalho, onde o modelo ajuda com análise e pesquisa, a linha entre conferência sincera e concordância é tênue demais. É uma tentativa, não uma prova. 
 
-O método se lê como PDSA aplicado a contexto. A Engenharia de Produção dá o método (trabalho padronizado, poka-yoke, PDSA, desvio positivo), e duas frentes de pesquisa dão o embasamento:
+## Em que eu me apoio
 
-- **Engenharia de Contexto**: o contexto é um orçamento finito com geometria, porque o modelo usa bem o começo e o fim da janela e perde o meio, e o harness em volta do modelo move o resultado **de um jeito que dá para projetar**. Uma medição recente registra o mesmo modelo variando dezenas de pontos **entre um harness e outro** ([Harness-Bench, 2026](https://arxiv.org/abs/2605.27922), _preprint_).
-- **Comportamento do modelo**: a bajulação é produto do treino por preferência humana ([Sharma et al., 2023](https://arxiv.org/abs/2310.13548)), aumenta com escala e mais RLHF ([Perez et al., 2022](https://arxiv.org/abs/2212.09251)), e um perfil do usuário na memória a amplifica em vários modelos (até +45% de concordância no caso medido, com casos sem mudança significativa; [Jain et al., CHI 2026](https://doi.org/10.1145/3772318.3791915)).
+Eu não estou inventando disciplina nova: estou **traduzindo** prática velha de engenharia pra um meio novo. Minha área é **Engenharia de Produção**, e uso dois conceitos dela, em português simples:
 
-O texto formal, a tese, vem depois, à medida que a pesquisa firma.
+- **Poka-Yoke**: evitar o erro pela estrutura, não pela energia do sistema.
+- **PDSA**: melhorar estudando o resultado, não só inspecionando no fim.
+
+E sobre a ideia de que "a estrutura em volta do modelo move o resultado": há medição registrando o mesmo modelo variando dezenas de pontos **de uma estrutura pra outra** ([Harness-Bench, 2026](https://arxiv.org/abs/2605.27922), _preprint_). E a bajulação é produto do treino por preferência humana ([Sharma et al., 2023](https://arxiv.org/abs/2310.13548)), cresce com escala e RLHF ([Perez et al., 2022](https://arxiv.org/abs/2212.09251)), e um perfil do usuário na memória a amplifica (até +45% no caso medido, com casos sem mudança significativa; [Jain et al., CHI 2026](https://doi.org/10.1145/3772318.3791915)).
 
 ## Como usar
 
-1. Gere os seus três arquivos. O caminho mais rápido é a skill que acompanha o método, que entrevista você e preenche a tríade. Para preencher na mão, copie as versões em branco em [`method/templates/`](method/templates/); e, já que a tríade rende com capricho, ajuda pedir para um chat de contexto longo preencher com você.
-2. Ponha os três na raiz do seu espaço de trabalho e peça para a instância lê-los antes de qualquer tarefa.
-3. Mantenha um arquivo de memória **por projeto**, para o estado sobreviver ao reset. Evite uma memória global ativa, porque ela mistura o contexto entre projetos, que é justamente o oposto do isolamento que o método busca.
+1. Gere os seus três arquivos. O jeito mais rápido é a skill que acompanha o método (ela te entrevista e preenche). Os **perfis prontos** dos agentes/função estão em [`method/agents/`](method/agents/); (aliás, já nem sei mais o que chamo de agente). A porta e o manual saem preenchidos.
+2. A tríade você calibra o agente, a descrição do projeto e um contexto mínimo sobre você para ajudar a diminuir o atrito de conversas de trabalho longo. A calibração pode ser feita por chat, numa interface própria pra isso ou simplesmente deixando numa pasta e pedindo pra instância ler, se preferir, traduz e usa via terminal.
+3. Mantenha uma `memoria.md` **por projeto**, para garantir a continuidade do contexto "limpo" por projeto.
 
 ## Referências
 
@@ -85,6 +89,3 @@ O texto formal, a tese, vem depois, à medida que a pesquisa firma.
 - **Método, templates e textos:** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), use, adapte e compartilhe, inclusive comercialmente, com atribuição.
 - **Qualquer código ou script:** MIT.
 
-## Construído em público
-
-Isto evolui ao vivo. A trilha de commits é o registro de campo, datado e versionado, e o que você vê é o estado atual, não um produto fechado. Contribuições e replicações são bem-vindas, e o processo de submissão entra numa rodada seguinte.
