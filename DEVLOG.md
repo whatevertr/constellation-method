@@ -4,6 +4,14 @@ O que muda aqui, quando e por quê. Inclui o que a conferência derrubou, inclus
 
 ---
 
+## 03/09/2026 — exemplos de deny comparaveis, e "guardrail" no lugar de "parede"
+
+**Mudou:** em ONDE_CONFIGURAR.md, os tres exemplos de deny passam a negar o mesmo comando (`rm`), com uma linha extra mostrando a granularidade por argumento do Codex. "parede" vira "guardrail" em todo o arquivo.
+
+**Por que:** os exemplos usavam comandos diferentes (`rm`/`del` contra `git push --force`), o que fazia parecer que negavam coisas diferentes; e "parede" e metafora, "guardrail" e o termo reconhecido, ja usado no README. Apontado por um leitor.
+
+*EN: the three deny examples now block the same command (`rm`), with an extra line showing Codex's argument-level granularity; "wall" becomes "guardrail" throughout. The examples had used different commands, which made them look like they blocked different things; flagged by a reader.*
+
 ## 02/09/2026 — três skills no lugar de uma, e a escala em pastas
 
 **Mudou:** a skill única virou três, uma por peça da tríade. Entrou a tabela de onde configurar cada camada por plataforma, e uma prévia do modelo mínimo de fluxo de contexto em pastas. Os três perfis de agente ganharam guardrails e limite alinhado ao uso real. Saíram as ilustrações e o PDF de exemplo.
