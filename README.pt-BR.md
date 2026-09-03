@@ -2,90 +2,114 @@
 
 # Método Constelação
 
-Três arquivos que você preenche uma vez, pra uma IA não perder o fio entre sessões. A instância lê os três no começo de cada sessão e já sabe quem você é, o que importa agora e como você trabalha.
-
-> **A forma como eu uso** tem funcionado bem e, eu gosto de organizar estruturas, resolvi documentar a minha, enquanto estudo e vou melhorando.
+Três documentos que você preenche uma vez, para uma IA não perder o fio entre sessões. A instância lê os três no começo e já sabe quem você é, o que importa agora e que papel ela assume.
 
 ---
 
 ## O problema
 
-A cada sessão nova, ou reset de contexto, a instância esquece quem você é, o que importa agora e como você trabalha, e você recomeça do zero. Pior: sem regras explícitas, o modelo tende a **concordar com você (bajulação)** e a preencher lacuna com palpite plausível em vez de dizer **"não sei"**, ou rejeitar o erro produzido. E às vezes você só descobre no meio da produção, com retrabalho e token gasto.
+O método surgiu da minha vontade de aperfeiçoar, melhorar a minha interação com a IA em todos os sentidos. Então fui vendo de quais formas eu conseguiria com menos esforços ter resultados cada vez melhores, começando por coisas simples e depois escalando.
 
-A bajulação **não é um vício que se conserta esperando o próximo modelo**: ela é produto previsível do treino por preferência humana e não diminui conforme os modelos melhoram (ver [Referências](#referências)). Já que nasce no objetivo de treino, eu **escolho** montar a defesa como estrutura **fora** do modelo, em vez de contar que ele se autovigie sozinho.
+Mapeando pelo que resulta do sistema, criei regras de trabalho, um acordo que precisa ser estabelecido para o objetivo do projeto ser cumprido, ou seja, contextualizei de forma metodológica.
 
-O método monta o contexto em camadas antes da tarefa: o que é o projeto, como a sua cabeça funciona, e a postura que a instância carrega. O estado do trabalho vive numa `memoria.md` que sobrevive ao reset. Você para de recomeçar do zero. (Os meus costumam lembrar do que eu tenho que fazer melhor do que eu 😏.)
+E a minha observação que levou à lógica do como contextualizar com esforço mínimo, separando em 3 taxonomias, é que a bajulação tem função quando amarrada ao objetivo do trabalho, sem objetivo, ela vira ruído na conversa.
+## Contexto mínimo:
 
-Agora as interfaces já estão implementando seus gatilhos de salvar na memória dentro da pasta do app, recente eu vi acontecer na minha frente, mas ainda assim, eu ainda acho que para garantir conferências limpas, precisa separar o contexto até no nível da memória, então... Tem uma manutenção pra fazer quando o gerenciamento é em interface e não via terminal kkkk não faço ideia do trabalho que dá pra fazer isso via terminal.
+Três documentos, três camadas:
 
-## A tríade: o mínimo que eu uso
+- **a porta** (`start_here`): onde a instância entra. O tema, o objetivo, o porquê aquilo importa agora = contextualização do objetivo;
+- **o manual** (`how_to_work_with_me`): como a sua cabeça funciona. Os seus critérios de colaboração = contextualização da comunicação humano/ia;
+- **a função** (`agents/`), **thinker**/**manager**/**worker** ou análise/auditoria/execução = contextualização do que é indispensável para o cumprimento do objetivo.
 
-Três arquivos, três camadas:
+## Tríade de função
 
-- **a porta** (`comece_aqui`): onde a instância entra. O tema, a prioridade de agora, e pra onde ir em seguida.
-- **o manual** (`como_trabalhar_comigo`): como a sua cabeça funciona. Os seus critérios de colaboração, escritos por você.
-- **a função** (`method/agents/`): que papel a instância assume. Três perfis prontos e genéricos, **thinker**, **manager**, **worker**, um por tarefa, cada um com o piso epistêmico que não muda.
+A qualidade mínima parte de ter pelo menos duas camadas de conferência independente, uma determinística, e outra probabilística, ou se preferir, uma auditiva e outra analítica.
 
-🍷Seria um mínimo para começar a fazer tarefas mais complexas de forma mais rápida.
+- **Execução operacionalizada** (worker): executa a tarefa sem o viés de quem desenhou o processo.
+- **conferência auditiva** (manager): confere o que voltou contra o que foi combinado.
+- **conferência analítica** (thinker): estressa a hipótese antes de ela virar decisão, e planeja o próximo.
+## Dois modos de usar (mesma arquitetura, investimentos diferentes)
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/triad_nud_noite.svg">
-  <img alt="A tríade: as três camadas do método" src="assets/triad_nud_dia.svg">
-</picture>
+1. **Como projeto.** Os três documentos num espaço de trabalho da interface da empresa que fornece o serviço de IA. É o jeito manual, custo baixo de manutenção, bom para projetos de curto a médio prazo
+2. **Como agente configurado.** Os mesmos documentos virando configuração de agente na plataforma. Mesmo efeito, só que escalável, para duração a longo prazo, e parece depender da organização de navegação do contexto no espaço do projeto.
 
-## Como cheguei aqui
+A tabela em [`ONDE_CONFIGURAR.md`](ONDE_CONFIGURAR.md) mostra onde cada camada mora em cada plataforma que eu testei, para quem quiser o segundo modo. Duas camadas que se reforçam:
 
-A tríade não nasceu pronta, foi destilada no uso ao longo de muitas instâncias. Eu observava, mudava, testava, conferia, nada muito elaborado, fui mapeando pelo comportamento. Este mapa é a trilha do percurso, da primeira instância sem contexto até a estrutura da tríade:
+- **Guardrails determinísticos**: paredes que não dependem do modelo (o que ele não pode executar, onde não pode escrever), mecânico.
+- **Piso epistêmico**: regras em prosa que direcionam o comportamento e diminui o range das respostas por se comportarem como critérios de acerto, que reforçam o foco ao objetivo.
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/mapa_cronologico_noite.svg">
-  <img alt="Método Constelação: a trilha ao longo do tempo" src="assets/mapa_cronologico_dia.svg">
-</picture>
+### As duas regras que carregam a honestidade
 
-## Pra onde estou indo (ainda um esboço)
+O piso completo (taça e colunas) fica no papel analítico (thinker). O manager e o worker carregam a versão enxuta: a moeda e o "falhou se". Cada papel carrega o piso do tamanho da função dele.
 
-O desenho maior abaixo, um cronista central que mantém o rastro, salas isoladas por assunto (uma não enxerga a outra), memória consistente, é onde estou trabalhando hoje e colocando aqui aos poucos, um esboço da arquitetura, é o modelo de interface que eu gostaria de ter. Se tiver alguém querendo construir, seria interessante.
+- **A taça 🍷**: a instância marca em uma linha o que percebe mas não conseguiu verificar. O não conferido fica nomeado, não escondido.
+- **O jogo da moeda**: antes de conferir, a instância aposta no resultado; depois pontua se acertou. É uma redundância de conferência sobre do que ela previu, os parâmetros da previsão são ajustados à cada erro.
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/harness_desenho_definitivo_noite.svg">
-  <img alt="O desenho maior (esboço): a arquitetura pretendida" src="assets/harness_desenho_definitivo_dia.svg">
-</picture>
+  > **Exemplo.** A instância aposta antes de terminar: *"ela declara a probabilidade calculada, e ou registra o acerto, ou recalcula"*. É um jeito de pedir conferência sobre a própria conclusão, tentando circundar a bajulação em vez de proibi-la. Não afirmo que resolve. É uma observação minha, não uma prova.
 
-## As regras que carregam a honestidade
+## + contexto = + tokens 
 
-Duas peças, e as duas são estrutura, não força de vontade:
+Mais contexto significa mais tokens, mesma lógica do porque conversas longas gastam mais tokens. Mas acredito que a curto prazo é um preço se paga em precisão e qualidade, e alongo prazo... Acredito que a longo prazo é possível que compensa o custo. E o conhecimento que eu adquiri trabalhando nisso faz parte desse cálculo pra mim.
+## Onde isso funciona, e onde não
 
-- **A taça 🍷**: a instância (e você) marca em uma linha o que percebe mas não consegue verificar. O não-conferido fica nomeado, não escondido.
-- **O jogo da moeda**: a cada troca, você sinaliza se o que veio estava certo ou errado, e a instância já tinha apostado nisso. É uma redundância de conferência sobre o contexto do que está sendo pedido ou reportado.
+Não se aplica bem a **desenvolvimento de software e backend**. Ali os agentes assumem outros papéis, direcionados e delimitados em cadeias, somente travas determinísticas, voltados a teste e conferência de código em escala.
 
-  > **Exemplo concreto.** A instância aposta antes de terminar ou antes de conferir: *"aposto que X vai precisar de ajuste"*. Depois de conferir, ela pontua: *"não precisou de ajuste, não pontuei"*. É um jeito criativo de pedir conferência sobre o que ela mesma concluiu, tentando circundar a sycophancy em vez de proibi-la. Não afirmo que resolve: numa conversa de trabalho, onde o modelo ajuda com análise e pesquisa, a linha entre conferência sincera e concordância é tênue demais. É uma tentativa, não uma prova. 
+O que a tríade traz de específico é o **papel analítico escalável**, e ele rende onde o trabalho envolve **decisão**, não só execução verificável, como por exemplo:
+
+- design e desenvolvimento front-end;
+- análise e auditoria de dados;
+- monitoramento de indicadores;
+- processos criativos.
+## Em que degrau este método está
+
+**método** (formalizado e aplicável) → **reproduzível** (terceiros repetem) → **eficaz** (avaliação mede o resultado) → **generalizável** (resultado observado por outros)
+
+A Tríade se declara no **primeiro degrau**: método formalizado, em uso diário, com reprodutibilidade e eficácia ainda em teste. Nomear a escada é o convite, quem quiser ajudar sabe qual degrau está vago.
 
 ## Em que eu me apoio
 
-Eu não estou inventando disciplina nova: estou **traduzindo** prática velha de engenharia pra um meio novo. Minha área é **Engenharia de Produção**, e uso dois conceitos dela, em português simples:
+Eu não estou inventando disciplina nova, estou **traduzindo** prática velha de engenharia para um meio novo. ferramentas e metodologias de análise/mapeamento/gerenciamento de processos, também precisam de aplicação de contexto:
 
 - **Poka-Yoke**: evitar o erro pela estrutura, não pela energia do sistema.
-- **PDSA**: melhorar estudando o resultado, não só inspecionando no fim.
+- **PDCA**: melhorar checando o resultado analítica e auditiva, antes da próxima ação.
 
-E sobre a ideia de que "a estrutura em volta do modelo move o resultado": há medição registrando o mesmo modelo variando dezenas de pontos **de uma estrutura pra outra** ([Harness-Bench, 2026](https://arxiv.org/abs/2605.27922), _preprint_). E a bajulação é produto do treino por preferência humana ([Sharma et al., 2023](https://arxiv.org/abs/2310.13548)), cresce com escala e RLHF ([Perez et al., 2022](https://arxiv.org/abs/2212.09251)), e um perfil do usuário na memória a amplifica (até +45% no caso medido, com casos sem mudança significativa; [Jain et al., CHI 2026](https://doi.org/10.1145/3772318.3791915)).
+Sobre a ideia de que "a estrutura em volta do modelo move o resultado", há medição registrando o mesmo modelo variando dezenas de pontos de uma estrutura para outra ([Harness-Bench, 2026](https://arxiv.org/abs/2605.27922), preprint). E a bajulação é produto do treino por preferência humana ([Sharma et al., 2023](https://arxiv.org/abs/2310.13548)), cresce com escala e RLHF ([Perez et al., 2022](https://arxiv.org/abs/2212.09251)), e um perfil do usuário na memória a amplifica (até +45% no caso medido, com casos sem mudança significativa; [Jain et al., CHI 2026](https://doi.org/10.1145/3772318.3791915)). Talvez a bajulação não tenha que ser eliminada e sim direcionada para diminuir as chances de erro.
 
-## Como usar
+## Escala em pastas (escala máxima + navegação por contexto)
 
-1. Gere os seus três arquivos. O jeito mais rápido é a skill que acompanha o método (ela te entrevista e preenche). Os **perfis prontos** dos agentes/função estão em [`method/agents/`](method/agents/); (aliás, já nem sei mais o que chamo de agente). A porta e o manual saem preenchidos.
-2. A tríade você calibra o agente, a descrição do projeto e um contexto mínimo sobre você para ajudar a diminuir o atrito de conversas de trabalho longo. A calibração pode ser feita por chat, numa interface própria pra isso ou simplesmente deixando numa pasta e pedindo pra instância ler, se preferir, traduz e usa via terminal.
-3. Mantenha uma `memoria.md` **por projeto**, para garantir a continuidade do contexto "limpo" por projeto.
+Quando os documentos passam a viver em pastas no seu computador, esta é a estrutura mínima que eu uso:
 
-## Referências
+```
+Documents/
+└── vault_[name]/
+    ├── _to_delete/                 ← pré-lixeira: nada é apagado de vez
+    ├── projects/
+    │   └── project_[name]/
+    │       └── start_here.md       ← a porta do projeto
+    ├── neighborhood/               ← uma casa por agente
+    │   ├── home_thinker/
+    │   │   └── memory/             ← estados
+    │   ├── home_manager/
+    │   └── home_worker/
+    └── work_tables/
+        └── work_table_[project]/   ← handoff entre agentes
+            ├── _task/
+            ├── _output/
+            └── _states/
+```
 
-- Anthropic — *Effective context engineering for AI agents* (2025).
-- Liu et al. — *Lost in the Middle* (2023), [arXiv:2307.03172](https://arxiv.org/abs/2307.03172).
-- Yao et al. — *Harness-Bench* (2026, preprint), [arXiv:2605.27922](https://arxiv.org/abs/2605.27922).
-- Sharma et al. — *Towards Understanding Sycophancy in Language Models* (2023), [arXiv:2310.13548](https://arxiv.org/abs/2310.13548).
-- Perez et al. — *Discovering Language Model Behaviors with Model-Written Evaluations* (2022), [arXiv:2212.09251](https://arxiv.org/abs/2212.09251).
-- Jain et al. — *Interaction Context Often Increases Sycophancy in LLMs* (2025), [arXiv:2509.12517](https://arxiv.org/abs/2509.12517).
+O que cada peça faz: a **casa** (`home_[agent]`) é onde cada agente é vinculado, e em alguns serviços a pasta se liga ao identificador do agente; a **work_table** é onde um agente entrega e outro pega; a **memory** guarda estados de onde o trabalho parou; a **pré-lixeira** evita exclusão e permite recuperar; e o `start_here.md` na pasta do projeto.
+
+## Leituras
+
+- Anthropic, *Effective context engineering for AI agents* (2025).
+- Liu et al., *Lost in the Middle* (2023), [arXiv:2307.03172](https://arxiv.org/abs/2307.03172).
+- Yao et al., *Harness-Bench* (2026, preprint), [arXiv:2605.27922](https://arxiv.org/abs/2605.27922).
+- Sharma et al., *Towards Understanding Sycophancy in Language Models* (2023), [arXiv:2310.13548](https://arxiv.org/abs/2310.13548).
+- Perez et al., *Discovering Language Model Behaviors with Model-Written Evaluations* (2022), [arXiv:2212.09251](https://arxiv.org/abs/2212.09251).
+- Jain et al., *Interaction Context Often Increases Sycophancy in LLMs* (2025), [arXiv:2509.12517](https://arxiv.org/abs/2509.12517).
 
 ## Licença
 
-- **Método, templates e textos:** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), use, adapte e compartilhe, inclusive comercialmente, com atribuição.
+- **Método, templates e textos:** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 - **Qualquer código ou script:** MIT.
-

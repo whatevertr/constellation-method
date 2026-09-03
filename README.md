@@ -2,89 +2,118 @@
 
 # Constellation Method
 
-A lightweight, three-file harness for working with an AI over long tasks without losing the thread between sessions. Three documents you fill in once, and the instance reads at the start of every session.
-
-> **What this is.** Research into self-improvement and building my own infrastructure, validated in daily use (_dogfooding_). Proposing a new architecture and putting it out in public is a legitimate way to generate knowledge, so I release this as a **hypothesis of solution:** grounded, not yet tested at scale, built in the open. The commit trail is the dated record of how it evolves.
+Three documents you fill in once, so an AI does not lose the thread between sessions. The instance reads the three at the start and already knows who you are, what matters now, and what role it takes on.
 
 ---
 
 ## The problem
 
-Long work with an AI has a recurring failure. Every new session, or every context reset, the instance forgets who you are (and sometimes you don't notice), what matters now, and how you work, and you start over explaining everything. And when you don't notice it forgot you, or forgot the goal, well... you find out in the middle of the work, and I bet you have already paid for it in rework or wasted tokens. Worse: without explicit rules, the model tends to agree with you **(sycophancy)** and to fill a gap with a plausible guess instead of saying **"I don't know."**
+The method came out of my own wish to get better at working with AI, in every sense. So I kept looking for ways to get better and better results with less effort, starting with simple things and scaling from there.
 
-This **is not a quirk that fixes itself by waiting for the next model**, because sycophancy is a predictable product of training on human preference and does not shrink as models get better (see [References](#references)). The conclusion is direct: since the bias is born in the training objective, the defense has to be structure **outside** the model.
+Mapping by what comes out of the system, I wrote working rules, an agreement that has to be set for the goal of the project to be met. In other words, I contextualized in a methodical way.
 
-The method builds context in layers before any task: what the project is, how your head works, and the epistemic posture the instance carries. The work state lives in a memory.md that survives the reset. You stop starting from zero, and you gain efficiency. Mine usually remember what I have to do better than I do. 😏
+And the observation that led me to the logic of how to contextualize with minimum effort, split into 3 taxonomies, is that sycophancy has a function when it is tied to the goal of the work. Without a goal, it becomes noise in the conversation.
 
-## The triad: the minimal harness
+## Minimum context
 
-The entry point is three files, three layers:
+Three documents, three layers:
 
-- **the door** (`comece_aqui`): where the instance enters. The topic, the priority alive right now, and where to go next.
-- **the manual** (`como_trabalhar_comigo`): how your head works. Your collaboration criteria, written by you.
-- **the contract** (`the role`): how you want the instance to be. Its angle and the epistemic floor that does not change. Three ready roles (thinker, worker, manager), one per task.
+- **the door** (`start_here`): where the instance enters. The topic, the goal, why it matters now = context of the goal;
+- **the manual** (`how_to_work_with_me`): how your head works. Your criteria for collaboration = context of the human/AI communication;
+- **the function** (`agents/`), **thinker**/**manager**/**worker**, or analysis/audit/execution = context of what is indispensable for meeting the goal.
 
-Three files that carry out the four canonical context moves: write, select, compress, isolate. It is the minimum that already works.
+## The triad of functions
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/triad_nud_noite.svg">
-  <img alt="The triad: the three layers of the minimal harness" src="assets/triad_nud_dia.svg">
-</picture>
+The minimum quality starts from having at least two independent layers of checking, one deterministic and one probabilistic, or if you prefer, one auditing and one analytical.
 
-## How I got to the harness
+- **Operationalized execution** (worker): runs the task without the bias of whoever designed the process.
+- **auditing check** (manager): checks what came back against what was agreed.
+- **analytical check** (thinker): stresses the hypothesis before it becomes a decision, and plans the next one.
 
-The triad was not born finished, it was distilled in use across many instances. Each room tested a piece, and what survived the check stayed, because without a stable standard there is no way to know what caused the improvement. This map is the trail of the path, from the first instance with no context to today's structure:
+## Two ways to use it (same architecture, different investments)
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/mapa_cronologico_noite.svg">
-  <img alt="Constellation Method: the trail to the harness, over time" src="assets/mapa_cronologico_dia.svg">
-</picture>
+1. **As a project.** The three documents inside a workspace in the interface of the company that provides the AI service. It is the manual way, low maintenance cost, good for short to medium term projects.
+2. **As a configured agent.** The same documents turned into agent configuration on the platform. Same effect, but scalable, for the long term, and it seems to depend on how you organize context navigation inside the project space.
 
-## The harness: where I work now
+The table in [`ONDE_CONFIGURAR.md`](ONDE_CONFIGURAR.md) shows where each layer lives on each platform I tested, for anyone who wants the second way. Two layers that reinforce each other:
 
-What started as three files grew into the structure I now operate from here on: a central chronicler that organizes and keeps the trail, contexts isolated by subject (one room cannot see another), connected memory that survives the reset, and a wall between the public and the private. This is the harness design, the full architecture:
+- **Deterministic guardrails**: walls that do not depend on the model (what it cannot run, where it cannot write), mechanical.
+- **Epistemic floor**: rules in prose that steer the behavior and narrow the range of the answers, because they act as criteria for being right, reinforcing the focus on the goal.
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/harness_desenho_definitivo_noite.svg">
-  <img alt="The full Constellation harness: the architecture" src="assets/harness_desenho_definitivo_dia.svg">
-</picture>
+### The two rules that carry the honesty
 
-## The epistemic rules
+The full floor (the cup and the columns) sits in the analytical role (thinker). The manager and the worker carry the lean version: the coin toss and the "failed if". Each role carries a floor sized to its function.
 
-Two pieces carry the method's honesty, and both are structure, not willpower:
+- **The cup 🍷**: the instance marks in one line what it notices but could not verify. The unverified is named, not hidden.
+- **The coin toss**: before checking, the instance bets on the result, then scores whether it was right. It is a redundancy of checking over what it predicted, and the parameters of the prediction are adjusted at each miss.
 
-- **The cup 🍷**: the instance (and you) marks in one line what it perceives but cannot verify. The unchecked gets named, not hidden.
-- **The coin game**: each turn, you signal right or wrong and the instance bets whether your signal was sincere. Two checks, one on each side. This disarms sycophancy because the structure forces a bet, instead of letting the model just absorb your feedback.
+  > **Example.** The instance bets before finishing: *"it states the probability it calculated, then either records the hit or recalculates"*. It is a way of asking for a check over its own conclusion, trying to work around sycophancy instead of forbidding it. I do not claim it solves the problem. It is an observation of mine, not a proof.
 
-## What it is built on
+## More context = more tokens
 
-The method reads as PDSA applied to context. Production engineering gives the method (standardized work, poka-yoke, PDSA, positive deviance), and two research fronts give the grounding:
+More context means more tokens, the same logic as why long conversations cost more tokens. But I believe that in the short term it is a price paid in precision and quality, and in the long term I believe it is likely that it pays off. And the knowledge I gained working on this is part of that calculation for me.
 
-- **Context engineering**: context is a finite budget with geometry, because the model uses the start and the end of the window well and loses the middle, and the harness around the model moves the result **in a way you can design for**. A recent measurement records the same model swinging dozens of points **from one harness to another** ([Harness-Bench, 2026](https://arxiv.org/abs/2605.27922), _preprint_).
-- **Model behavior**: sycophancy is a product of training on human preference ([Sharma et al., 2023](https://arxiv.org/abs/2310.13548)), increases with scale and more RLHF ([Perez et al., 2022](https://arxiv.org/abs/2212.09251)), and a user profile in memory amplifies it across several models (up to +45% agreement in the measured case, with cases showing no significant change; [Jain et al., CHI 2026](https://doi.org/10.1145/3772318.3791915)).
+## Where it works, and where it does not
 
-The formal text, the thesis, comes later, as the research firms up.
+It does not apply well to **software development and backend**. There the agents take on other roles, directed and bounded in chains, deterministic locks only, aimed at testing and checking code at scale.
 
-## How to use it
+What the triad brings that is specific is the **scalable analytical role**, and it pays off where the work involves **decision**, not just verifiable execution, such as:
 
-1. Generate your three files. The fastest way is the skill that comes with the method, which interviews you and fills the triad. To fill them by hand, copy the blank versions in [`method/templates/`](method/templates/); and since the triad rewards care, it helps to ask a long-context chat to fill them with you.
-2. Put the three at the root of your workspace and ask the instance to read them before any task.
-3. Keep a memory file **per project**, so the state survives the reset. Avoid an active global memory, because it mixes context between projects, which is exactly the opposite of the isolation the method is after.
+- design and front-end development;
+- data analysis and auditing;
+- indicator monitoring;
+- creative processes.
 
-## References
+## What rung this method is on
 
-- Anthropic — *Effective context engineering for AI agents* (2025).
-- Liu et al. — *Lost in the Middle* (2023), [arXiv:2307.03172](https://arxiv.org/abs/2307.03172).
-- Yao et al. — *Harness-Bench* (2026, preprint), [arXiv:2605.27922](https://arxiv.org/abs/2605.27922).
-- Sharma et al. — *Towards Understanding Sycophancy in Language Models* (2023), [arXiv:2310.13548](https://arxiv.org/abs/2310.13548).
-- Perez et al. — *Discovering Language Model Behaviors with Model-Written Evaluations* (2022), [arXiv:2212.09251](https://arxiv.org/abs/2212.09251).
-- Jain et al. — *Interaction Context Often Increases Sycophancy in LLMs* (2025), [arXiv:2509.12517](https://arxiv.org/abs/2509.12517).
+**method** (formalized and applicable) → **reproducible** (others repeat it) → **effective** (evaluation measures the result) → **generalizable** (result observed by others)
+
+The Triad places itself on the **first rung**: a formalized method, in daily use, with reproducibility and effectiveness still under test. Naming the ladder is the invitation, whoever wants to help knows which rung is open.
+
+## What I lean on
+
+I am not inventing a new discipline, I am **translating** old engineering practice into a new medium. Tools and methods for analyzing, mapping and managing processes also need context applied to them:
+
+- **Poka-Yoke**: prevent the error through structure, not through the system's energy.
+- **PDCA**: improve by checking the result, analytically and through auditing, before the next action.
+
+On the idea that "the structure around the model moves the result", there is measurement recording the same model varying by dozens of points from one structure to another ([Harness-Bench, 2026](https://arxiv.org/abs/2605.27922), preprint). And sycophancy is a product of training on human preference ([Sharma et al., 2023](https://arxiv.org/abs/2310.13548)), grows with scale and RLHF ([Perez et al., 2022](https://arxiv.org/abs/2212.09251)), and a profile of the user in memory amplifies it (up to +45% in the measured case, with cases showing no significant change; [Jain et al., CHI 2026](https://doi.org/10.1145/3772318.3791915)). Maybe sycophancy does not have to be eliminated but directed, to lower the chance of error.
+
+## Scale in folders (maximum scale + context navigation)
+
+When the documents move to folders on your computer, this is the minimum structure I use:
+
+```
+Documents/
+└── vault_[name]/
+    ├── _to_delete/                 ← pre-trash: nothing is deleted for good
+    ├── projects/
+    │   └── project_[name]/
+    │       └── start_here.md       ← the project door
+    ├── neighborhood/               ← one home per agent
+    │   ├── home_thinker/
+    │   │   └── memory/             ← states
+    │   ├── home_manager/
+    │   └── home_worker/
+    └── work_tables/
+        └── work_table_[project]/   ← handoff between agents
+            ├── _task/
+            ├── _output/
+            └── _states/
+```
+
+What each piece does: the **home** (`home_[agent]`) is where each agent is bound, and in some services the folder ties to the agent's identifier; the **work_table** is where one agent delivers and another picks up; the **memory** keeps the states of where the work stopped; the **pre-trash** avoids deletion and allows recovery; and `start_here.md` in the project folder is the door.
+
+## Reading
+
+- Anthropic, *Effective context engineering for AI agents* (2025).
+- Liu et al., *Lost in the Middle* (2023), [arXiv:2307.03172](https://arxiv.org/abs/2307.03172).
+- Yao et al., *Harness-Bench* (2026, preprint), [arXiv:2605.27922](https://arxiv.org/abs/2605.27922).
+- Sharma et al., *Towards Understanding Sycophancy in Language Models* (2023), [arXiv:2310.13548](https://arxiv.org/abs/2310.13548).
+- Perez et al., *Discovering Language Model Behaviors with Model-Written Evaluations* (2022), [arXiv:2212.09251](https://arxiv.org/abs/2212.09251).
+- Jain et al., *Interaction Context Often Increases Sycophancy in LLMs* (2025), [arXiv:2509.12517](https://arxiv.org/abs/2509.12517).
 
 ## License
 
-- **Method, templates, and text:** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), use, adapt, and share, including commercially, with attribution.
-- **Any code or scripts:** MIT.
-
-## Built in public
-
-This evolves live. The commit trail is the field log, dated and versioned, and what you see is the current state, not a closed product. Contributions and replications are welcome, and the submission process comes in a following round.
+- **Method, templates and text:** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+- **Any code or script:** MIT.
