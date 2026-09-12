@@ -4,6 +4,16 @@ O que muda aqui, quando e por quê. Inclui o que a conferência derrubou, inclus
 
 ---
 
+## 12/09/2026 — README vira "como usar", a explicação vai para METODO.md, e a nud-agentes vira o guia de montagem
+
+**Mudou:** o README (PT) foi reordenado: uma frase, "O que é" (a história no lugar de "O problema"), contexto mínimo, agentes, **como usar** (as três skills, em ordem, com um exemplo datado no Claude Cowork), onde usar (a estrutura de pastas) e links. Saíram do README e foram para `METODO.md`: dois modos, as duas camadas, as duas regras da honestidade, o degrau, em que me apoio e as leituras. Cortados de vez: "+ contexto = + tokens" e "onde funciona e onde não". A skill `nud-agentes` deixou de só entregar os três perfis: agora carrega o contexto do método (`contexto/ambiente.md`, mais cópias fiéis de `METODO.md` e `ONDE_CONFIGURAR.md`) e um passo a passo de montagem que conversa antes de fazer, pede os documentos das outras duas skills, entrega os perfis e monta junto, no tamanho que a pessoa escolher. Nos seis perfis (`agents/` e `modelos/`): o "[a preencher]" de conectores virou uma frase que já funciona vazia, e as pastas de trabalho passaram a usar os nomes do desenho (`_task/`, `_output/`, `_states/`).
+
+**Por quê:** leitores (inclusive um teste em casa) não entendiam o que fazer: o README explicava o que é, não o que fazer; a skill dos agentes cuspia três arquivos e a instância ficava confusa. Documentação tem tipos que não se misturam: o README passa a ser o "como usar", a explicação mora num arquivo próprio, e a skill precisa funcionar sozinha, para quem baixou só ela.
+
+**Pendente:** o README em inglês ainda é a versão anterior; a imagem do harness volta ao README; as cópias dentro da skill precisam mudar junto com os arquivos-fonte (conferir por comparação, não por leitura).
+
+*EN: the PT README was reordered into a "how to use" (one sentence, the story, minimum context, agents, the three skills in order with a dated Claude Cowork example, folder structure, links); the explanation moved to `METODO.md`; two sections were cut. The `nud-agentes` skill now carries the method's context and a step-by-step that talks before doing, asks for the other two documents, delivers the profiles and builds the setup with the person, at the size they choose. Profiles: the "[to fill]" placeholder became a sentence that works empty; work folders now match the diagram names. Why: readers could not tell what to do. Pending: the EN README, the harness image, and keeping the in-skill copies in sync with their sources.*
+
 ## 03/09/2026 — exemplos de deny comparaveis, e "guardrail" no lugar de "parede"
 
 **Mudou:** em ONDE_CONFIGURAR.md, os tres exemplos de deny passam a negar o mesmo comando (`rm`), com uma linha extra mostrando a granularidade por argumento do Codex. "parede" vira "guardrail" em todo o arquivo.
