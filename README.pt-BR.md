@@ -1,5 +1,10 @@
 <p align="right"><a href="README.md">🇺🇸 English</a></p>
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/banner-night.svg">
+  <img alt="Método Constelação: um humano, três agentes, contexto que direciona tudo" src="assets/banner-day.svg">
+</picture>
+
 # Método Constelação
 
 Método de gerenciar várias áreas e projetos a partir de um contexto mínimo que direciona tudo, com agentes em três ângulos de função.

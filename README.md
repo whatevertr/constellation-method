@@ -1,5 +1,10 @@
 <p align="right"><a href="README.pt-BR.md">🇧🇷 Português</a></p>
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/banner-night.svg">
+  <img alt="Constellation Method: one human, three agents, context that steers everything" src="assets/banner-day.svg">
+</picture>
+
 # Constellation Method
 
 Method for managing several areas and projects from a minimum context that steers everything, with agents in three angles of function.
