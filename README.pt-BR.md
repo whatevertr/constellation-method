@@ -41,14 +41,14 @@ O piso e os guardrails que os três carregam estão explicados em [`METODO.md`](
 
 **Exemplo no Claude Cowork (setembro de 2026):** o manual vai em *Configurações → Geral → Instruções para o Claude* (vale para todas as conversas) ou nas *Instruções* do projeto; a porta vai nas *Instruções* do projeto, e o objetivo também pode ir para a memória do projeto (a pasta `claude`, que a instância cria quando você pede e que só aparece na interface depois que tem algo dentro); o perfil do agente vai em *Configurações → Cowork* (as instruções que valem para todas as sessões do Cowork) ou nas *Instruções* do projeto. Os nomes dos campos mudam com o tempo; a lógica se mantém: manual = como você trabalha, porta = o que é o projeto, função = o papel da instância.
 
-## Onde usar
-
-O contexto mínimo cabe numa pasta só, dentro do projeto do seu app. O contexto em escala precisa de uma estrutura de pastas no seu computador. Depois de montada, ela não se move nem se apaga, só cresce: as configurações e os guardrails apontam para esses caminhos. É isso que mantém a instância sempre calibrada no contexto e capaz de gerenciar os temas.
-
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/context-structure-night.svg">
   <img alt="Estrutura de contexto: os três agentes e o acesso de cada um às pastas" src="assets/context-structure-day.svg">
 </picture>
+
+## Onde usar
+
+O contexto mínimo cabe numa pasta só, dentro do projeto do seu app. O contexto em escala precisa de uma estrutura de pastas no seu computador. Depois de montada, ela não se move nem se apaga, só cresce: as configurações e os guardrails apontam para esses caminhos. É isso que mantém a instância sempre calibrada no contexto e capaz de gerenciar os temas.
 
 ```
 Documents/

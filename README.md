@@ -41,14 +41,14 @@ The floor and the guardrails the three carry are explained in [`METODO.md`](METO
 
 **Example in Claude Cowork (September 2026):** the manual goes in *Settings → General → Instructions for Claude* (applies to all conversations) or in the project's *Instructions*; the door goes in the project's *Instructions*, and the goal can also go into the project's memory (the `claude` folder, which the instance creates when you ask and which only shows up in the interface once there is something inside it); the agent's profile goes in *Settings → Cowork* (the instructions that apply to all Cowork sessions) or in the project's *Instructions*. Field names change over time; the logic stays the same: manual = how you work, door = what the project is, function = the instance's role.
 
-## Where to use
-
-The minimum context fits in a single folder, inside your app's project. Context at scale needs a folder structure on your computer. Once set up, it does not move or get deleted, it only grows: the configurations and guardrails point to these paths. That is what keeps the instance always calibrated in context and able to manage the topics.
-
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/context-structure-night.svg">
   <img alt="Context structure: the three agents and each one's access to the folders" src="assets/context-structure-day.svg">
 </picture>
+
+## Where to use
+
+The minimum context fits in a single folder, inside your app's project. Context at scale needs a folder structure on your computer. Once set up, it does not move or get deleted, it only grows: the configurations and guardrails point to these paths. That is what keeps the instance always calibrated in context and able to manage the topics.
 
 ```
 Documents/
