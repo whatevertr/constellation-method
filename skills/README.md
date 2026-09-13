@@ -1,6 +1,9 @@
 # As três skills
 
-<!-- imagem das skills entra aqui -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/skills-overview-night.svg">
+  <img alt="As três skills: o que cada uma faz, o que você faz, o que você recebe" src="assets/skills-overview-day.svg">
+</picture>
 
 Três skills, uma por documento do contexto mínimo. Use nesta ordem:
 

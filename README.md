@@ -45,6 +45,11 @@ The floor and the guardrails the three carry are explained in [`METODO.md`](METO
 
 The minimum context fits in a single folder, inside your app's project. Context at scale needs a folder structure on your computer. Once set up, it does not move or get deleted, it only grows: the configurations and guardrails point to these paths. That is what keeps the instance always calibrated in context and able to manage the topics.
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/context-structure-night.svg">
+  <img alt="Context structure: the three agents and each one's access to the folders" src="assets/context-structure-day.svg">
+</picture>
+
 ```
 Documents/
 └── vault_[name]/
@@ -65,8 +70,6 @@ Documents/
 ```
 
 What each piece does: the **home** (`home_[agent]`) is where each agent is bound, and in some services the folder ties to the agent's identifier; the **work_table** is where one agent delivers and another picks up; the **memory** keeps the states of where the work stopped; the **pre-trash** avoids deletion and allows recovery; and `start_here.md` sits in the project folder.
-
-<!-- harness image goes here -->
 
 ## Dig deeper
 

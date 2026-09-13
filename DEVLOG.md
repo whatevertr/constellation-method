@@ -4,6 +4,12 @@ O que muda aqui, quando e por quê. Inclui o que a conferência derrubou, inclus
 
 ---
 
+## 13/09/2026 — as imagens entram
+
+**Mudou:** entrou a imagem da **estrutura de contexto** (os três agentes e o acesso de cada um às pastas) no topo da seção "Onde usar" dos dois READMEs, e a imagem das **três skills** (skill / você faz / você recebe) no topo de `skills/README.md`. Todas em `<picture>` com versão dia (padrão) e noite (modo escuro), SVG. Arquivos em `assets/` e `skills/assets/`. A árvore de pastas em texto continua abaixo da imagem, para copiar os nomes.
+
+*EN: the context-structure image (the three agents and each one's folder access) goes at the top of "Where to use" in both READMEs, and the three-skills image at the top of skills/README.md. Both as `<picture>` with day/night SVG. The text folder tree stays below the image, for copying names.*
+
 ## 12/09/2026 — README vira "como usar", a explicação vai para METODO.md, e a nud-agentes vira o guia de montagem
 
 **Mudou:** o README (PT) foi reordenado: uma frase, "O que é" (a história no lugar de "O problema"), contexto mínimo, agentes, **como usar** (as três skills, em ordem, com um exemplo datado no Claude Cowork), onde usar (a estrutura de pastas) e links. Saíram do README e foram para `METODO.md`: dois modos, as duas camadas, as duas regras da honestidade, o degrau, em que me apoio e as leituras. Cortados de vez: "+ contexto = + tokens" e "onde funciona e onde não". A skill `nud-agentes` deixou de só entregar os três perfis: agora carrega o contexto do método (`contexto/ambiente.md`, mais cópias fiéis de `METODO.md` e `ONDE_CONFIGURAR.md`) e um passo a passo de montagem que conversa antes de fazer, pede os documentos das outras duas skills, entrega os perfis e monta junto, no tamanho que a pessoa escolher. Nos seis perfis (`agents/` e `modelos/`): o "[a preencher]" de conectores virou uma frase que já funciona vazia, e as pastas de trabalho passaram a usar os nomes do desenho (`_task/`, `_output/`, `_states/`).

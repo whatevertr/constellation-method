@@ -45,6 +45,11 @@ O piso e os guardrails que os três carregam estão explicados em [`METODO.md`](
 
 O contexto mínimo cabe numa pasta só, dentro do projeto do seu app. O contexto em escala precisa de uma estrutura de pastas no seu computador. Depois de montada, ela não se move nem se apaga, só cresce: as configurações e os guardrails apontam para esses caminhos. É isso que mantém a instância sempre calibrada no contexto e capaz de gerenciar os temas.
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/context-structure-night.svg">
+  <img alt="Estrutura de contexto: os três agentes e o acesso de cada um às pastas" src="assets/context-structure-day.svg">
+</picture>
+
 ```
 Documents/
 └── vault_[name]/
@@ -65,8 +70,6 @@ Documents/
 ```
 
 O que cada peça faz: a **casa** (`home_[agent]`) é onde cada agente é vinculado, e em alguns serviços a pasta se liga ao identificador do agente; a **work_table** é onde um agente entrega e outro pega; a **memory** guarda estados de onde o trabalho parou; a **pré-lixeira** evita exclusão e permite recuperar; e o `start_here.md` fica na pasta do projeto.
-
-<!-- imagem do harness entra aqui -->
 
 ## Para se aprofundar
 
