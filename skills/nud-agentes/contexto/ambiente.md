@@ -8,11 +8,11 @@ Os três documentos (porta, manual, função) ficam no espaço do projeto dentro
 
 **Exemplo no Claude Cowork (setembro de 2026).** Os nomes dos campos mudam com o tempo; a lógica se mantém.
 
-| Documento | Onde entra | Observação |
-|---|---|---|
-| **Manual** (`how_to_work_with_me`) | *Configurações → Geral → Instruções para o Claude* | Vale para todas as conversas e para o Cowork. É onde a maioria das pessoas põe. Alternativa: nas *Instruções* do projeto, se a pessoa quiser separar por projeto. |
-| **Porta** (`start_here`) | *Instruções* do projeto (o campo de regras, no canto superior direito da página do projeto) | O objetivo do projeto também pode ir para a memória do projeto: a pasta `claude`, que a instância cria quando a pessoa pede. Essa pasta não é acessível pela pessoa e só aparece na interface depois que tem algo dentro. |
-| **Função** (o perfil do agente) | *Configurações → Cowork* (instruções que valem para todas as sessões do Cowork) | Alternativa: nas *Instruções* do projeto, quando cada projeto tem um papel diferente. Se o projeto tem pasta conectada com uma porta própria (`CLAUDE.md`, `AGENTS.md` ou config), a porta manda. |
+| Documento                          | Onde entra                                                                                  | Observação                                                                                                                                                                                                                |
+| ---------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Manual** (`how_to_work_with_me`) | *Configurações → Geral → Instruções para o Claude*                                          | Vale para todas as conversas e para o Cowork. É onde a maioria das pessoas põe. Alternativa: nas *Instruções* do projeto, se a pessoa quiser separar por projeto.                                                         |
+| **Porta** (`start_here`)           | *Instruções* do projeto (o campo de regras, no canto superior direito da página do projeto) | O objetivo do projeto também pode ir para a memória do projeto: a pasta `claude`, que a instância cria quando a pessoa pede. Essa pasta não é acessível pela pessoa e só aparece na interface depois que tem algo dentro. |
+| **Função** (o perfil do agente)    | *Configurações → Cowork* (instruções que valem para todas as sessões do Cowork)             | Alternativa: nas *Instruções* do projeto, quando cada projeto tem um papel diferente. Se o projeto tem pasta conectada com uma porta própria (`CLAUDE.md`, `AGENTS.md` ou config), a porta manda.                         |
 
 Em outros apps, procure o equivalente: um lugar de **instruções permanentes** (manual), um lugar de **arquivos ou instruções do projeto** (porta) e um lugar onde a **persona** da instância se define (função). Se só existir um campo, os três documentos entram nele, nessa ordem: função, manual, porta.
 

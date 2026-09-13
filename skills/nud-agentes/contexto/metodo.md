@@ -1,15 +1,15 @@
-> Cópia fiel de `METODO.md` do repositório, para a skill funcionar sozinha. A fonte é o repositório; quando ele mudar, esta cópia muda junto.
+> Adaptado de `METODO.md` do repositório (mesmo conteúdo, em tom de instrução), para a skill funcionar sozinha. Quando o arquivo do repositório mudar, este muda junto.
 
 # Método: o piso, os guardrails e em que isso se apoia
 
-Este arquivo guarda a explicação. O [README](https://github.com/whatevertr/constellation-method/blob/main/README.pt-BR.md) diz o que é e como usar; aqui está o porquê de cada regra que os agentes carregam.
+Este arquivo guarda a explicação do método, para a instância entender o porquê de cada regra antes de ajudar a pessoa. O [README](https://github.com/whatevertr/constellation-method/blob/main/README.pt-BR.md) diz o que é e como usar; aqui está o porquê de cada regra que os agentes carregam.
 
 ## Dois modos de usar (mesma arquitetura, investimentos diferentes)
 
-1. **Como projeto.** Os três documentos num espaço de trabalho da interface da empresa que fornece o serviço de IA. É o jeito manual, custo baixo de manutenção, bom para projetos de curto a médio prazo. Foi assim que o método começou.
-2. **Como agente configurado.** Os mesmos documentos virando configuração de agente na plataforma. Mesmo efeito, só que escalável, para duração a longo prazo, e parece depender da organização de navegação do contexto no espaço do projeto.
+1. **Como projeto.** Os três documentos num espaço de trabalho da interface do provedor de IA. É o jeito manual, custo baixo de manutenção, bom para projetos de curto a médio prazo.
+2. **Como agente configurado.** Os mesmos documentos virando configuração de agente na plataforma. Mesmo efeito, só que escalável, para duração a longo prazo, passa a depender da organização de navegação do contexto no espaço do projeto.
 
-A tabela em `onde_configurar.md` (nesta pasta) mostra onde cada camada mora em cada plataforma que eu testei, para quem quiser o segundo modo.
+A tabela em `onde_configurar.md` (nesta pasta) mostra onde cada camada mora em cada plataforma, com exemplos nas três que a autora do método testou: Claude Code, Codex e Hermes.
 
 ## Duas camadas que se reforçam
 
@@ -23,7 +23,7 @@ O piso completo (taça e colunas) fica no papel analítico (thinker). O manager 
 - **A taça 🍷**: a instância marca em uma linha o que percebe mas não conseguiu verificar. O não conferido fica nomeado, não escondido.
 - **O jogo da moeda**: antes de conferir, a instância aposta no resultado; depois pontua se acertou. É uma redundância de conferência sobre o que ela previu; os parâmetros da previsão são ajustados a cada erro.
 
-  > **Exemplo.** A instância aposta antes de terminar: *"ela declara a probabilidade calculada, e ou registra o acerto, ou recalcula"*. É um jeito de pedir conferência sobre a própria conclusão, tentando circundar a bajulação em vez de proibi-la. Não afirmo que resolve. É uma observação minha, não uma prova.
+  > **Exemplo.** A instância aposta antes de terminar: *"ela declara a probabilidade calculada, e ou registra o acerto, ou recalcula"*. É um jeito de pedir conferência sobre a própria conclusão, tentando circundar a bajulação em vez de proibi-la. A autora não afirma que isso resolve: é uma observação de uso, não uma prova. Apresente do mesmo jeito.
 
 ## Em que degrau este método está
 
@@ -31,9 +31,9 @@ O piso completo (taça e colunas) fica no papel analítico (thinker). O manager 
 
 A Tríade se declara no **primeiro degrau**: método formalizado, em uso diário, com reprodutibilidade e eficácia ainda em teste. Nomear a escada é o convite: quem quiser ajudar sabe qual degrau está vago.
 
-## Em que eu me apoio
+## Em que o método se apoia
 
-Eu não estou inventando disciplina nova, estou **traduzindo** prática velha de engenharia para um meio novo. Ferramentas e metodologias de análise, mapeamento e gerenciamento de processos também precisam de aplicação de contexto:
+A autora não inventou disciplina nova: está **traduzindo** prática velha de engenharia para um meio novo. Ferramentas e metodologias de análise, mapeamento e gerenciamento de processos também precisam de aplicação de contexto:
 
 - **Poka-Yoke**: evitar o erro pela estrutura, não pela energia do sistema.
 - **PDCA**: melhorar checando o resultado analítica e auditivamente, antes da próxima ação.

@@ -8,13 +8,13 @@ Método de gerenciar várias áreas e projetos a partir de um contexto mínimo q
 
 ## O que é
 
-O método surgiu e continua sendo aprimorado. Ele é uma forma de gerenciar contexto para que a IA consiga me ajudar a gerenciar a minha vida. Comecei com projetos dentro da interface dos provedores e fui documentando aqui conforme fui escalando. Hoje tenho um sistema que funciona de forma global, não importa o modelo ou o canal de interação com ele, e gerencio toda a minha vida a partir dessas três funções de agente (thinker, manager, worker). Isso está transformando a minha vida, me dando mais autonomia e capacidade de criação, além de me tornar uma pessoa mais saudável.
+É um jeito de organizar contexto para que a IA consiga me ajudar a gerenciar a minha vida. Comecei simples: arquivos markdown dentro de projetos na interface do provedor, que a instância lia no início de cada trabalho. Fui documentando aqui conforme escalava. Hoje tenho um sistema que funciona em qualquer modelo, provedor ou interface, e gerencio toda a minha vida a partir de três funções de agente: thinker, manager e worker. Isso está transformando a minha vida. Me dá mais autonomia e capacidade de criação, e me deixou uma pessoa mais saudável.
 
-Claro que ainda tenho muita coisa pra melhorar e aprender, por isso vou sempre trazendo as melhorias para este repositório. Por enquanto ele explica como você pode instalar e começar a usar os meus agentes e o meu método de gerenciamento de fluxo de contexto para fazer o que você quiser: gerenciar uma vida, um projeto, ou uma demanda chata do seu trabalho.
+Ainda tenho muito pra melhorar e aprender, por isso as melhorias vão sempre chegar a este repositório. Aqui explico como instalar e começar a usar os meus agentes e o meu método de fluxo de contexto para o que você quiser: gerenciar uma vida, um projeto, ou uma demanda chata do seu trabalho.
 
 ## Contexto mínimo
 
-O método funciona a partir da elaboração do contexto mínimo, separado em três pilares. Ou melhor: separei três taxonomias de contexto, que organizam as informações que a instância precisa para trabalhar de forma gerencial. Se você quiser usar só para um projeto pontual, e não é desenvolvedor, use um projeto no app do seu provedor (o Claude Cowork, por exemplo): esses três documentos são o que você vai usar na configuração do projeto. É simples e funcional. Mas para escalar o trabalho, com gerenciamento a partir de memória continuada, esse contexto mínimo é o mínimo de informação inicial que a plataforma precisa para configurar o agente: o manual vira as regras de conduta, a porta vira a memória do projeto, e a função vira o perfil do agente. Os guardrails (o que ele não pode executar, onde não pode escrever) e os hooks (o que é barrado antes de acontecer) entram por cima disso, como configuração da plataforma, não como texto. Onde cada peça mora em cada plataforma está em [`ONDE_CONFIGURAR.md`](ONDE_CONFIGURAR.md).
+Tudo parte de um contexto mínimo, dividido em três documentos. Cada um organiza um tipo de informação que a instância precisa para trabalhar de forma gerencial. Se você quer usar só num projeto pontual, e não é desenvolvedor, use um projeto no app do seu provedor (o Claude Cowork, por exemplo): os três documentos entram na configuração do projeto, e pronto. É simples e funcional. **Para escalar, com gerenciamento e memória continuada**, esses mesmos três documentos são o mínimo que a plataforma precisa para configurar um agente: o manual vira as regras de conduta, a porta vira a memória do projeto, e a função vira o perfil do agente. Os guardrails (o que ele não pode executar, onde não pode escrever) e os hooks (o que é barrado antes de acontecer) entram por cima disso, como configuração da plataforma, não como texto. Onde cada peça mora em cada plataforma está em [`ONDE_CONFIGURAR.md`](ONDE_CONFIGURAR.md).
 
 Três documentos, três camadas:
 
@@ -24,7 +24,7 @@ Três documentos, três camadas:
 
 ## Agentes
 
-A lógica dos três agentes: em trabalhos pequenos, num projeto do app, o trabalho é pontual, ou analítico, ou auditivo, ou operacional. Escolhe um agente e usa ele. Para gerenciamento, as três camadas se sobrepõem em cada projeto, para que você receba só o resultado do trabalho para tomada de decisão. Para garantir que o trabalho vai ser executado corretamente e eu tenha a confiança de poder deixar os agentes gerenciando, o perfil epistemológico de cada um é o que faz diferença para o meu uso: trabalho com muita análise de dado e pesquisa, preciso de camadas de conferência, e eles funcionam exatamente assim:
+Num trabalho pequeno, dentro de um projeto do app, a tarefa é pontual: ou é análise, ou é conferência, ou é execução. Você escolhe um agente e usa só ele. Para gerenciar, os três trabalham em camadas no mesmo projeto, e o que chega até você é só o resultado, pronto para a decisão. O que me deixa confiante para deixar os agentes gerenciando é o piso que cada um carrega: eu trabalho com muita análise de dado e pesquisa, preciso de camadas de conferência, e eles funcionam exatamente assim:
 
 - **Execução operacionalizada** (worker): executa a tarefa sem o viés de quem desenhou o processo.
 - **Conferência auditiva** (manager): confere o que voltou contra o que foi combinado.
@@ -34,7 +34,7 @@ O piso e os guardrails que os três carregam estão explicados em [`METODO.md`](
 
 ## Como usar
 
-1. **Baixe o repositório.** Você só precisa da pasta [`skills/`](skills/) (as três skills). Cada uma tem um `README.md` com a instrução de instalação.
+1. **Baixe as skills.** Estão na pasta [`skills/`](skills/): cada uma como pasta aberta e como `.zip` pronto para subir no seu app. O `README` da pasta explica a instalação.
 2. **`nud-como-trabalhar-comigo`** — instale ou cole no chat. A instância vai fazer perguntas; responda com sinceridade. Esse documento é o que estabelece o chão comum de comunicação entre você e seus agentes.
 3. **`nud-comece-aqui`** — te ajuda a explicar seu objetivo. Serve para pasta de projeto, demanda pontual ou objetivo específico (uma festa de casamento, por exemplo). Garante o contexto mínimo de um objetivo.
 4. **`nud-agentes`** — o contexto do método. Instala na instância a capacidade de te ajudar a montar o seu jeito de trabalhar, seja num projeto do app ou em escala, e traz os perfis dos três agentes dentro. Ela vai pedir os dois documentos gerados acima para entender que tipo de configuração você precisa.
@@ -43,7 +43,7 @@ O piso e os guardrails que os três carregam estão explicados em [`METODO.md`](
 
 ## Onde usar
 
-O fluxo de contexto mínimo cabe numa pasta só, dentro do projeto do seu app. Já o fluxo de contexto em escala precisa de uma estrutura de pastas organizada. Uma vez organizadas, elas não são movidas nem excluídas, só acrescentadas, porque são usadas no system prompt e nos guardrails. É isso que permite que a instância esteja sempre calibrada no contexto e faça o gerenciamento dos temas.
+O contexto mínimo cabe numa pasta só, dentro do projeto do seu app. O contexto em escala precisa de uma estrutura de pastas no seu computador. Depois de montada, ela não se move nem se apaga, só cresce: as configurações e os guardrails apontam para esses caminhos. É isso que mantém a instância sempre calibrada no contexto e capaz de gerenciar os temas.
 
 ```
 Documents/

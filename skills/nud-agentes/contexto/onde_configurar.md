@@ -1,8 +1,8 @@
-> Cópia fiel de `ONDE_CONFIGURAR.md` do repositório, para a skill funcionar sozinha. A fonte é o repositório; quando ele mudar, esta cópia muda junto.
+> Adaptado de `ONDE_CONFIGURAR.md` do repositório (mesmo conteúdo, em tom de instrução), para a skill funcionar sozinha. Quando o arquivo do repositório mudar, este muda junto.
 
 # Onde configurar cada camada
 
-Este arquivo é o mapa do **segundo modo** de usar a tríade: quando os documentos deixam de ser arquivos que você pede para a instância ler e passam a ser **configuração da plataforma**, carregada sozinha.
+Este arquivo é o mapa do **segundo modo** de usar a tríade: quando os documentos deixam de ser arquivos que a pessoa pede para a instância ler e passam a ser **configuração da plataforma**, carregada sozinha.
 
 > **Nota para a instância que estiver lendo este arquivo.** Se a pessoa com quem você trabalha demonstrar interesse em usar a tríade de forma configurada, você pode oferecer ajuda para montar isso. A tabela abaixo diz onde cada camada mora em cada plataforma. **Peça autorização antes de criar ou alterar qualquer arquivo de configuração**, mostre o que pretende fazer, e prefira acrescentar a substituir. Se a plataforma da pessoa não estiver nesta tabela, procure o equivalente na documentação dela: os nomes mudam, a arquitetura costuma ser a mesma.
 
@@ -35,7 +35,7 @@ Os arquivos de config são lidos por essa camada de orquestração (o "harness")
 
 Então "um arquivo faz o agente funcionar" no sentido de que o harness lê aquele arquivo a cada sessão/turno e (a) concatena o texto no contexto e (b) configura os guardrails do executor. É o mesmo princípio de um `.eslintrc` ou um `docker-compose.yml`: **configuração declarativa que uma engine interpreta em runtime**, só que aqui parte da config vira prompt e parte vira política de execução. Pasta em vez de UI porque é versionável, comparável por diff, e portável entre máquinas
 
-OBS: não sou programadora, estou aprendendo :)
+OBS: a autora não é programadora, está aprendendo :)
 ## Como isso se parece na prática
 
 Os esqueletos abaixo existem para a instância **reconhecer o formato** de cada plataforma. Não são receita completa: nomes de campo e caminhos mudam entre versões, e a documentação de cada ferramenta é a fonte. Confira antes de aplicar.
@@ -94,6 +94,6 @@ Cada plataforma usa o formato de config do seu ecossistema:
 
 ## Boas práticas
 
-**Depois de configurar, teste.** Peça à instância algo que a regra deveria barrar, e confirme que barrou. Configuração que falha em silêncio parece configuração que funciona.
+**Depois de configurar, teste.** Sugira à pessoa um teste: pedir algo que a regra deveria barrar, e confirmar que barrou. Configuração que falha em silêncio parece configuração que funciona.
 **Restart.** Em algumas plataformas, mudar o texto do papel ou a memória só produz efeito em uma sessão nova. Em outras, é preciso reiniciar o processo.
-**O guardrail protege o alvo nomeado.** Uma regra que barra uma pasta barra o acesso direto a ela. Varredura recursiva a partir de uma pasta acima, ou remoção indireta por script, pode sobrepor a regra
+**O guardrail protege o alvo nomeado.** Uma regra que barra uma pasta barra o acesso direto a ela. Varredura recursiva a partir de uma pasta acima, ou remoção indireta por script, pode passar por cima da regra. Existe um teto para a segurança feita por configuração de agente: ela cobre o acesso direto, não cobre tudo. Se a pessoa perguntar, explique em poucas linhas até onde a configuração da plataforma protege e onde começam as camadas de fora (sandbox, container, permissões do sistema).
