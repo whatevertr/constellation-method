@@ -2,86 +2,48 @@
 
 # Constellation Method
 
-Three documents you fill in once, so an AI does not lose the thread between sessions. The instance reads the three at the start and already knows who you are, what matters now, and what role it takes on.
+Method for managing several areas and projects from a minimum context that steers everything, with agents in three angles of function.
 
 ---
 
-## The problem
+## What it is
 
-The method came out of my own wish to get better at working with AI, in every sense. So I kept looking for ways to get better and better results with less effort, starting with simple things and scaling from there.
+It is a way to organize context so AI can help me manage my life. I started simple: markdown files inside projects in the provider's interface, which the instance read at the start of each job. I documented it here as it scaled. Today I have a system that works on any model, provider or interface, and I manage my whole life from three agent functions: thinker, manager and worker. This is transforming my life. It gives me more autonomy and capacity to create, and it made me a healthier person.
 
-Mapping by what comes out of the system, I wrote working rules, an agreement that has to be set for the goal of the project to be met. In other words, I contextualized in a methodical way.
-
-And the observation that led me to the logic of how to contextualize with minimum effort, split into 3 taxonomies, is that sycophancy has a function when it is tied to the goal of the work. Without a goal, it becomes noise in the conversation.
+I still have a lot to improve and learn, so improvements will always arrive in this repository. Here I explain how to install and start using my agents and my method of context flow for whatever you want: managing a life, a project, or an annoying task from your job.
 
 ## Minimum context
+
+Everything starts from minimum context, split into three documents. Each one organizes a type of information the instance needs to work in a managerial way. If you want to use it in just a one-off project, and you are not a developer, use a project in your provider's app (Claude Cowork, for example): the three documents go into the project configuration, and that's it. It is simple and functional. **To scale, with management and continued memory**, these same three documents are the minimum the platform needs to configure an agent: the manual becomes the rules of conduct, the door becomes the project's memory, and the function becomes the agent's profile. Guardrails (what it cannot run, where it cannot write) and hooks (what is blocked before it happens) sit on top of this, as platform configuration, not as text. Where each piece lives on each platform is in [`ONDE_CONFIGURAR.md`](ONDE_CONFIGURAR.md).
 
 Three documents, three layers:
 
 - **the door** (`start_here`): where the instance enters. The topic, the goal, why it matters now = context of the goal;
-- **the manual** (`how_to_work_with_me`): how your head works. Your criteria for collaboration = context of the human/AI communication;
+- **the manual** (`how_to_work_with_me`): how your head works. Your criteria for collaboration = context of human/AI communication;
 - **the function** (`agents/`), **thinker**/**manager**/**worker**, or analysis/audit/execution = context of what is indispensable for meeting the goal.
 
-## The triad of functions
+## Agents
 
-The minimum quality starts from having at least two independent layers of checking, one deterministic and one probabilistic, or if you prefer, one auditing and one analytical.
+In a small job, inside an app project, the task is one-off: it is either analysis, or checking, or execution. You choose one agent and use only that one. To manage, the three work in layers within the same project, and what reaches you is just the result, ready for the decision. What makes me confident enough to let the agents manage is the floor each one carries: I work with a lot of data analysis and research, I need layers of checking, and they work exactly like this:
 
 - **Operationalized execution** (worker): runs the task without the bias of whoever designed the process.
-- **auditing check** (manager): checks what came back against what was agreed.
-- **analytical check** (thinker): stresses the hypothesis before it becomes a decision, and plans the next one.
+- **Audit check** (manager): checks what came back against what was agreed.
+- **Analytical check** (thinker): stresses the hypothesis before it becomes a decision, and plans the next one.
 
-## Two ways to use it (same architecture, different investments)
+The floor and the guardrails the three carry are explained in [`METODO.md`](METODO.md).
 
-1. **As a project.** The three documents inside a workspace in the interface of the company that provides the AI service. It is the manual way, low maintenance cost, good for short to medium term projects.
-2. **As a configured agent.** The same documents turned into agent configuration on the platform. Same effect, but scalable, for the long term, and it seems to depend on how you organize context navigation inside the project space.
+## How to use
 
-The table in [`ONDE_CONFIGURAR.md`](ONDE_CONFIGURAR.md) shows where each layer lives on each platform I tested, for anyone who wants the second way. Two layers that reinforce each other:
+1. **Download the skills.** They are in the [`skills/`](skills/) folder: each one as an open folder and as a `.zip` ready to upload to your app. The folder's `README` explains the installation.
+2. **`nud-como-trabalhar-comigo`**: install it or paste it into the chat. The instance will ask questions; answer honestly. This document is what establishes the common ground for communication between you and your agents.
+3. **`nud-comece-aqui`**: helps you explain your goal. It works for a project folder, a one-off task, or a specific goal (a wedding party, for example). It ensures the minimum context of a goal.
+4. **`nud-agentes`**: the context of the method. It installs in the instance the capacity to help you set up your way of working, whether in an app project or at scale, and it brings the profiles of the three agents inside it. It will ask for the two documents generated above to understand what kind of configuration you need.
 
-- **Deterministic guardrails**: walls that do not depend on the model (what it cannot run, where it cannot write), mechanical.
-- **Epistemic floor**: rules in prose that steer the behavior and narrow the range of the answers, because they act as criteria for being right, reinforcing the focus on the goal.
+**Example in Claude Cowork (September 2026):** the manual goes in *Settings → General → Instructions for Claude* (applies to all conversations) or in the project's *Instructions*; the door goes in the project's *Instructions*, and the goal can also go into the project's memory (the `claude` folder, which the instance creates when you ask and which only shows up in the interface once there is something inside it); the agent's profile goes in *Settings → Cowork* (the instructions that apply to all Cowork sessions) or in the project's *Instructions*. Field names change over time; the logic stays the same: manual = how you work, door = what the project is, function = the instance's role.
 
-### The two rules that carry the honesty
+## Where to use
 
-The full floor (the cup and the columns) sits in the analytical role (thinker). The manager and the worker carry the lean version: the coin toss and the "failed if". Each role carries a floor sized to its function.
-
-- **The cup 🍷**: the instance marks in one line what it notices but could not verify. The unverified is named, not hidden.
-- **The coin toss**: before checking, the instance bets on the result, then scores whether it was right. It is a redundancy of checking over what it predicted, and the parameters of the prediction are adjusted at each miss.
-
-  > **Example.** The instance bets before finishing: *"it states the probability it calculated, then either records the hit or recalculates"*. It is a way of asking for a check over its own conclusion, trying to work around sycophancy instead of forbidding it. I do not claim it solves the problem. It is an observation of mine, not a proof.
-
-## More context = more tokens
-
-More context means more tokens, the same logic as why long conversations cost more tokens. But I believe that in the short term it is a price paid in precision and quality, and in the long term I believe it is likely that it pays off. And the knowledge I gained working on this is part of that calculation for me.
-
-## Where it works, and where it does not
-
-It does not apply well to **software development and backend**. There the agents take on other roles, directed and bounded in chains, deterministic locks only, aimed at testing and checking code at scale.
-
-What the triad brings that is specific is the **scalable analytical role**, and it pays off where the work involves **decision**, not just verifiable execution, such as:
-
-- design and front-end development;
-- data analysis and auditing;
-- indicator monitoring;
-- creative processes.
-
-## What rung this method is on
-
-**method** (formalized and applicable) → **reproducible** (others repeat it) → **effective** (evaluation measures the result) → **generalizable** (result observed by others)
-
-The Triad places itself on the **first rung**: a formalized method, in daily use, with reproducibility and effectiveness still under test. Naming the ladder is the invitation, whoever wants to help knows which rung is open.
-
-## What I lean on
-
-I am not inventing a new discipline, I am **translating** old engineering practice into a new medium. Tools and methods for analyzing, mapping and managing processes also need context applied to them:
-
-- **Poka-Yoke**: prevent the error through structure, not through the system's energy.
-- **PDCA**: improve by checking the result, analytically and through auditing, before the next action.
-
-On the idea that "the structure around the model moves the result", there is measurement recording the same model varying by dozens of points from one structure to another ([Harness-Bench, 2026](https://arxiv.org/abs/2605.27922), preprint). And sycophancy is a product of training on human preference ([Sharma et al., 2023](https://arxiv.org/abs/2310.13548)), grows with scale and RLHF ([Perez et al., 2022](https://arxiv.org/abs/2212.09251)), and a profile of the user in memory amplifies it (up to +45% in the measured case, with cases showing no significant change; [Jain et al., CHI 2026](https://doi.org/10.1145/3772318.3791915)). Maybe sycophancy does not have to be eliminated but directed, to lower the chance of error.
-
-## Scale in folders (maximum scale + context navigation)
-
-When the documents move to folders on your computer, this is the minimum structure I use:
+The minimum context fits in a single folder, inside your app's project. Context at scale needs a folder structure on your computer. Once set up, it does not move or get deleted, it only grows: the configurations and guardrails point to these paths. That is what keeps the instance always calibrated in context and able to manage the topics.
 
 ```
 Documents/
@@ -89,7 +51,7 @@ Documents/
     ├── _to_delete/                 ← pre-trash: nothing is deleted for good
     ├── projects/
     │   └── project_[name]/
-    │       └── start_here.md       ← the project door
+    │       └── start_here.md       ← the project's door
     ├── neighborhood/               ← one home per agent
     │   ├── home_thinker/
     │   │   └── memory/             ← states
@@ -102,18 +64,19 @@ Documents/
             └── _states/
 ```
 
-What each piece does: the **home** (`home_[agent]`) is where each agent is bound, and in some services the folder ties to the agent's identifier; the **work_table** is where one agent delivers and another picks up; the **memory** keeps the states of where the work stopped; the **pre-trash** avoids deletion and allows recovery; and `start_here.md` in the project folder is the door.
+What each piece does: the **home** (`home_[agent]`) is where each agent is bound, and in some services the folder ties to the agent's identifier; the **work_table** is where one agent delivers and another picks up; the **memory** keeps the states of where the work stopped; the **pre-trash** avoids deletion and allows recovery; and `start_here.md` sits in the project folder.
 
-## Reading
+<!-- harness image goes here -->
 
-- Anthropic, *Effective context engineering for AI agents* (2025).
-- Liu et al., *Lost in the Middle* (2023), [arXiv:2307.03172](https://arxiv.org/abs/2307.03172).
-- Yao et al., *Harness-Bench* (2026, preprint), [arXiv:2605.27922](https://arxiv.org/abs/2605.27922).
-- Sharma et al., *Towards Understanding Sycophancy in Language Models* (2023), [arXiv:2310.13548](https://arxiv.org/abs/2310.13548).
-- Perez et al., *Discovering Language Model Behaviors with Model-Written Evaluations* (2022), [arXiv:2212.09251](https://arxiv.org/abs/2212.09251).
-- Jain et al., *Interaction Context Often Increases Sycophancy in LLMs* (2025), [arXiv:2509.12517](https://arxiv.org/abs/2509.12517).
+## Dig deeper
+
+- [`METODO.md`](METODO.md): the epistemic floor, the guardrails, the two rules of honesty, what rung the method is on and what it leans on.
+- [`ONDE_CONFIGURAR.md`](ONDE_CONFIGURAR.md): where each layer lives on each platform (Claude Code, Hermes, Codex).
+- [`MANIFESTO.md`](MANIFESTO.md): where this came from.
+- [`cronologia/`](cronologia/): the trail of the method, by eras.
+- [`DEVLOG.md`](DEVLOG.md): what changed, when, and what the check knocked down.
 
 ## License
 
-- **Method, templates and text:** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+- **Method, templates and texts:** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 - **Any code or script:** MIT.
