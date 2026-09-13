@@ -76,6 +76,12 @@ Documents/
 
 O que cada peça faz: a **casa** (`home_[agent]`) é onde cada agente é vinculado, e em alguns serviços a pasta se liga ao identificador do agente; a **work_table** é onde um agente entrega e outro pega; a **memory** guarda estados de onde o trabalho parou; a **pré-lixeira** evita exclusão e permite recuperar; e o `start_here.md` fica na pasta do projeto.
 
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/context-flow-night.svg">
+  <img alt="Fluxo de contexto: dos provedores ao ciclo dos três agentes, e de volta para você" src="assets/context-flow-day.svg">
+</picture>
+
 ## Para se aprofundar
 
 - [`METODO.md`](METODO.md): o piso epistêmico, os guardrails, as duas regras da honestidade, em que degrau o método está e em que ele se apoia.

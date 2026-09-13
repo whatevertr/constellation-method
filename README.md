@@ -76,6 +76,12 @@ Documents/
 
 What each piece does: the **home** (`home_[agent]`) is where each agent is bound, and in some services the folder ties to the agent's identifier; the **work_table** is where one agent delivers and another picks up; the **memory** keeps the states of where the work stopped; the **pre-trash** avoids deletion and allows recovery; and `start_here.md` sits in the project folder.
 
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/context-flow-night.svg">
+  <img alt="Context flow: from the providers to the cycle of the three agents, and back to you" src="assets/context-flow-day.svg">
+</picture>
+
 ## Dig deeper
 
 - [`METODO.md`](METODO.md): the epistemic floor, the guardrails, the two rules of honesty, what rung the method is on and what it leans on.
